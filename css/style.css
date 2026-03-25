@@ -1,0 +1,1029 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
+:root {
+    --bg-color: #F5F2EF;         
+    --primary-blue: #366273;      /* Tu nuevo color principal */
+    --logo-aqua: #8FB9B9;         
+    --accent-blue: #4A90E2;      
+    --white: #FFFFFF;
+    --text-dark: #333333;
+    
+    /* PARA EL CTA */
+    --cta-subtle-blue: #e2e8f0;   /* Un azul grisáceo muy suave */
+    
+    --shadow-pill: 0 10px 30px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+    
+    --font-title: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. NAVBAR (Estilo Píldora Flotante)
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 15px 30px; 
+    padding: 15px 40px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-pill);
+    border-radius: 50px; 
+    max-width: 1100px;
+    width: 95%;
+    margin: 20px auto;
+    transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+    position: sticky; /* O 'fixed' si prefieres que siempre flote */
+    top: 20px;
+    z-index: 1000;
+}
+
+.navbar--hidden { 
+    transform: translateY(-160%) !important;
+}
+
+.nav-menu { display: flex; list-style: none; gap: 25px; }
+.nav-menu a { 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-weight: 500; 
+    font-size: 0.95rem; 
+    transition: var(--transition); 
+}
+.nav-menu a:hover { color: var(--logo-aqua); }
+
+.btn-cta-nav {
+    background-color: var(--cta-subtle-blue);
+    color: var(--primary-blue) !important;
+    padding: 8px 18px;          /* Reducido de 10px 20px */
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    box-shadow: 4px 10px 12px rgba(3, 63, 77, 0.274); /* Sombra un poco más suave */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-cta-nav:hover {
+    background-color: #3a9cad;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 57, 70, 0.5);
+    filter: brightness(1.05);
+}
+
+/* Contenedor del logo para asegurar alineación */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    /* Contenedor pegado a la izquierda */
+    justify-content: flex-start;
+}
+
+.logo img {
+    height: 90px;      /* 1. Subimos de 35px a 40px porque ahora la imagen es "puro logo" */
+    width: auto;
+    display: block;
+    padding: 5px 0;    /* 2. Le damos un pequeño respiro arriba y abajo */
+    margin-left: 7px; /* 3. Lo separamos un poquito del borde izquierdo del navbar */
+    transition: var(--transition);
+}
+
+/* Efecto sutil al pasar el mouse */
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Responsive: pantallas medianas y pequenas. */
+@media (max-width: 992px) { /* se sube el breakpoint para cubrir media pantalla*/
+    .logo img {
+        height: 70px;
+        margin-left: 15px; /*Mantiene alineacion a la izquierda.*/
+    } 
+}
+
+@media (max-width: 480px) { /*para celulares muy pequeños*/
+    .logo img {
+        height: 50px;  /* 4. También lo subimos un poco en móvil para que no se pierda */
+        margin-left: 10;
+    }
+}
+
+/* --- ESPECÍFICOS PARA PANTALLA COMPLETA --- */
+@media (min-width: 1024px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        flex-wrap: nowrap; /* Prohibe terminantemente las dos líneas */
+        padding: 10px 30px;
+        max-width: 1200px; /* Un poco más de aire para que entre todo en fila */
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .logo {
+        flex: 1; 
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .nav-menu {
+        flex: 2; 
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Espacio equilibrado entre links */
+        margin: 0;
+    }
+
+    .nav-menu a {
+        white-space: nowrap; /* Evita que los nombres largos de los links se corten */
+    }
+
+
+    /* Contenedor del Botón para alinearlo a la derecha */
+    .cta-container {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .btn-cta-nav {
+        display: flex;           /* Flexbox interno para centrar el texto */
+        align-items: center;     /* Centrado vertical del texto */
+        justify-content: center; /* Centrado horizontal del texto */
+        min-width: 150px;        /* Ancho fijo para que no colapse */
+        height: 38px;            /* Altura fija para control total */
+        padding: 0 15px;
+        margin: 0;
+        text-align: center;
+        font-size: 0.8rem;
+        line-height: 1;          /* Reset del interlineado para evitar desvíos */
+        letter-spacing: 0.5px;  /* Un toque de espacio entre letras para que sea legible siendo chico */
+    }
+}
+
+    /* Reducir separación con la sección de abajo */
+    .hero {
+        margin-top: -40px; /* Acerca el contenido a la navbar */
+        padding-top: 0;
+    }
+
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 5%;
+}
+
+.hero-wrapper { 
+    display: flex; 
+    max-width: 1150px; 
+    width: 100%; 
+    gap: 60px; 
+    align-items: center; 
+    margin: 0 auto; 
+}
+
+.hero-text { flex: 1.2; }
+.hero-text h1 { 
+    font-size: 3.2rem; 
+    color: var(--primary-blue); 
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 580px;
+    opacity: 0.9;
+}
+
+.hero-form { 
+    background: var(--white); 
+    padding: 35px; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow-pill); 
+    width: 420px; 
+}
+
+.hero-form h3 { margin-bottom: 20px; color: var(--primary-blue); }
+.hero-form input, .hero-form textarea { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 15px; 
+    border: 1px solid #eee; 
+    border-radius: 8px; 
+    background: #f9f9f9; 
+    font-family: inherit; 
+    resize: none; 
+}
+
+/* ----   AJUSTE DE PROXIMIDAD HERO ---- */
+@media (min-width: 1024px) {
+    .hero {
+        height: auto;           /* Cambiamos 100vh por auto para que no fuerce espacio */
+        min-height: 80vh; 
+        padding-top: 20px;      /* Reducimos el aire superior al mínimo */
+        margin-top: -20px;      /* Tiramos de la sección hacia arriba */
+    }
+
+    .hero-wrapper {
+        margin-top: 0;          /* Eliminamos márgenes residuales */
+        padding-top: 0;
+    }
+}
+
+
+/* ==========================================================================
+   4. SECCIÓN CURSOS (Equilibrada y Sutil)
+   ========================================================================== */
+.cursos-new-layout {
+    padding: 80px 5%;
+    max-width: 1100px; /* Reducido ligeramente para mejor lectura */
+    margin: 0 auto;
+    /* Línea sutil superior para marcar inicio de sección sin bloques de color */
+    border-top: 1px solid rgba(143, 185, 185, 0.15); 
+    border-bottom: 1px solid rgba(143, 185, 185, 0.15);
+}
+
+.cursos-split-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    flex-direction: row-reverse; 
+}
+
+.cursos-text-side {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column; /* Permite ordenar tag -> título -> p -> botón */
+    text-align: left; 
+}
+
+/* TAG: Recto (90°) y arriba del título */
+.tag-label {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--logo-aqua);
+    border-radius: 0; /* Puntas rectas */
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--logo-aqua);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* TÍTULO: Tamaño balanceado */
+.cursos-text-side h2 {
+    font-size: 2.6rem; 
+    color: var(--primary-blue);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.cursos-description-p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 35px;
+    opacity: 0.85;
+}
+
+/* BOTÓN: Ubicado abajo del todo */
+.btn-explorar-rectangular {
+    align-self: flex-start;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.btn-explorar-rectangular:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(26, 54, 93, 0.1);
+}
+
+.cursos-image-side { 
+    flex: 1; 
+}
+
+/* IMAGEN: Forma original + Sombra difuminada */
+.image-container-styled {
+    width: 100%;
+    border-radius: 15px; /* Tu forma original */
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    /* Sombra difuminada suave en tono aqua */
+    box-shadow: 0 25px 50px -12px rgba(143, 185, 185, 0.3);
+}
+
+.image-container-styled img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ajuste Responsive */
+@media (max-width: 992px) {
+    .cursos-split-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .cursos-text-side {
+        align-items: center; /* Centra tag y botón en móvil */
+        text-align: center; 
+    }
+    
+    .cursos-text-side h2 {
+        text-align: center;
+        font-size: 2.2rem;
+    }
+}
+/* ==========================================================================
+   5. BOTONES Y ELEMENTOS COMUNES
+   ========================================================================== */
+button, .btn-cta {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: block;
+    margin: 20px auto;
+}
+
+button:hover, .btn-cta:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
+}
+
+/*-- Boton scroll down --*/
+.scroll-down {
+    position: absolute; 
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    text-align: center; 
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+
+.scroll-icon { 
+    width: 35px; 
+    height: 35px;
+    background-color: var(--primary-blue); /* Fondo solido */  
+    border-radius: 50%; /*Boton circular*/ 
+    margin: 0 auto 8px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    animation: bounce 2s infitine; /* Animacion sutil de rebote*/
+}
+
+.arrow-down {
+    width: 8px; 
+    height: 8px; 
+    border-right: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transform: rotate(45deg);
+    margin-top: -4px;
+}
+
+.scroll-down p {
+    font-size: 14px;
+    color: var(--primary-blue);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* HOVER */
+.scroll-down:hover .scroll-icon{
+    background-color: var(--logo-aqua);
+    transform: scale(1.1);
+}
+
+/* EFecto rebote */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-5px);}
+    60% {transform: translateY(-3px);}
+}
+
+/* ==========================================================================
+   6. SECCIONES Y FOOTER
+   ========================================================================== */
+section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+h2 { font-size: 2.5rem; color: var(--primary-blue); text-align: center; margin-bottom: 40px; }
+
+.logo-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.bw-logo { filter: grayscale(100%); opacity: 0.6; height: 50px; transition: var(--transition); }
+.bw-logo:hover { filter: grayscale(0%); opacity: 1; }
+
+footer { background-color: #E8E4E1; padding: 40px; text-align: center; margin-top: 50px; }
+
+
+/* ==========================================================================
+   SECCIÓN AHT - DISEÑO COMPACTO Y RECTO
+   ========================================================================== */
+
+.aht-section {
+    padding: 60px 5%; /* Menos padding para que ocupe menos espacio vertical */
+}
+
+.aht-card-compact {
+    background: var(--white);
+    max-width: 950px; /* Tarjeta más angosta para que sea más amable a la vista */
+    margin: 0 auto;
+    border-radius: 20px; /* Redondeado suave en la tarjeta para no perder la estética general */
+    padding: 40px 50px; /* Reducimos el aire interno */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.aht-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.aht-info {
+    flex: 1.5;
+}
+
+/* Contenedor del Carrusel */
+.carousel-section {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mySwiper {
+    width: 90%;
+    max-width: 1100px;
+    height: 480px; /* Ajusta según el contenido */
+    background: linear-gradient(135deg, #b3d9e9 0%, #e0e6ed 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* Slide de Logos */
+.logos-container-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 40px;
+}
+
+.logo-item.aht-feature img {
+    height: 90px;
+    margin-bottom: 30px;
+}
+
+.logo-grid-internal {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    align-items: center;
+}
+
+.logo-grid-internal img {
+    max-width: 110px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: 0.30s ease;
+}
+
+.logo-grid-internal img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Slide de Testimonios (Estilo 2 columnas) */
+.testimonio-wrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 10%;
+    gap: 50px;
+}
+
+.autor-info {
+    flex: 1;
+    text-align: left;
+    color: #4a6fa5; /* Azul destacado */
+}
+
+.autor-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.autor-info p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.texto-info {
+    flex: 2;
+    text-align: left;
+    color: #5a7a8f;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    font-style: italic;
+    position: relative;
+}
+
+/* Personalización de botones Swiper */
+.swiper-button-next, .swiper-button-prev {
+    color: rgba(255, 255, 255, 0.7);
+    transform: scale(0.7);
+}
+
+.swiper-pagination-bullet-active {
+    background: #4a6fa5 !important;
+}
+
+/* TAG CON ÁNGULOS EN 90 GRADOS (Sin redondear) */
+.tag-institucional-rect {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1.5px solid var(--logo-aqua); /* Solo el borde recto */
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--logo-aqua);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    /* Sin border-radius para lograr los 90 grados */
+}
+
+.aht-info h2 {
+    text-align: left;
+    font-size: 1.8rem; /* Título un poco más chico */
+    line-height: 1.2;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.aht-text-content {
+    border-left: 3px solid var(--logo-aqua);
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.p-destacado {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.p-secundario {
+    font-size: 0.95rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* BOTÓN MÁS DISCRETO */
+.btn-aht-compact {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.btn-aht-compact:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.1);
+}
+
+/* LOGO MÁS CHICO */
+.aht-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container-small {
+    background: #fcfcfc;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+}
+
+.logo-aht-small {
+    width: 160px; /* Logo más moderado */
+    height: auto;
+    display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .aht-grid { flex-direction: column; text-align: center; }
+    .aht-info h2 { text-align: center; }
+    .aht-text-content { border-left: none; border-top: 2px solid var(--logo-aqua); padding: 15px 0 0 0; }
+    .aht-card-compact { padding: 30px; }
+}
+
+/* ==========================================================================
+   8. TEST DE NIVELACION
+   ========================================================================== */
+
+
+/* Sección de ancho completo */
+.test-section-full {
+    width: 100%;
+    max-width: 1600px;
+    margin: 40px auto;
+    border-radius: 12px;
+    background-color: #e0e0e0; /* Color de fondo que llega a los costados */
+    padding: 0; /* Controla el espacio con las secciones de arriba/abajo */
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+}
+
+/* El link ahora ocupa el ancho pero el contenido se mantiene centrado */
+.test-full-link {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.test-content-wrapper {
+    max-width: 800px; /* Mantiene el texto legible y no tan estirado */
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos de texto */
+.test-content-wrapper h2 {
+    color: #1a3a5a;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif; /* O la que uses para títulos */
+}
+
+.test-content-wrapper p {
+    color: #5a7a8f;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Botón/Call to action */
+.btn-mock {
+    color: #4a6fa5;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto Hover en toda la sección */
+.test-section-full:hover {
+    background-color: #f1f1f1; /* Un cambio sutil al pasar el mouse */
+    box-shadow: 0 15px 20px rgba(112, 164, 207, 0.808);
+    filter: brightness(1);
+}
+
+.test-full-link:hover .btn-mock {
+    text-decoration: underline;
+    letter-spacing: 2px; /* Pequeña animación de expansión */
+}
+
+/* ==========================================================================
+   9. PAGINA CURSOS
+   ========================================================================== */
+/* Sección General */
+.cursos-section {
+    padding: 60px 0;
+    background: white; /* O el color de fondo general de tu web */
+    text-align: center;
+}
+
+/* Título sin marcador ni resaltado */
+.titulo-cursos-limpio {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #1a3a5a;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Grilla de Tarjetas */
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px; /* Más espacio entre tarjetas para que respiren */
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo de la Tarjeta */
+.curso-card {
+    background: #ffffff;
+    border: 2px solid #e0e6ed;
+    border-radius: 12px;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover suave solo en la tarjeta */
+.curso-card:hover {
+    border-color: #b3d9e9;
+    box-shadow: 0 20px 25px rgba(0, 1, 2, 0.05);
+}
+
+.curso-header h3 {
+    color: #1a3a5a;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.tag-info {
+    color: #4a6fa5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.curso-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.curso-features li {
+    color: #5a7a8f;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+/* Botón Rectangular estilo imagen */
+.btn-cursos {
+    display: inline-block;
+    padding: 12px 0;
+    width: 100%; /* Ocupa el ancho de la tarjeta como en tu captura */
+    max-width: 200px;
+    margin: 0 auto;
+    border: 3px solid #042352;
+    color: #042352;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-cursos:hover {
+    background-color: #042352;
+    color: white;
+    border-color: #042352;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cursos-grid {
+        grid-template-columns: 1fr;
+    }
+    .titulo-cursos-limpio {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================================================
+   10. PAGINA ON-DEMAND
+   ========================================================================== */
+
+.on-demand-intro { padding: 50px 0; background-color: #fcfcfc; }
+.titulo-seccion-itálico { font-family: 'Playfair Display', serif; font-style: italic; color: #1a3a5a; font-size: 2.8rem; margin-bottom: 40px; }
+
+.info-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+
+/* Caja con borde punteado de tu captura */
+.info-box.box-dashed { border: 2px dashed #b3d9e9; padding: 30px; border-radius: 10px; }
+.info-box.box-simple { border: 1px solid #e0e6ed; padding: 30px; border-radius: 10px; background: white; }
+
+.txt-bold { font-weight: 700; color: #1a3a5a; margin-bottom: 5px; }
+
+/* Acordeones Azules */
+.acordion-item { background: #1a3a5a; color: white; margin-bottom: 10px; border-radius: 5px; cursor: pointer; }
+.acordion-item summary { padding: 15px; font-weight: 600; list-style: none; outline: none; }
+.acordion-content { background: white; color: #333; padding: 20px; border: 1px solid #1a3a5a; }
+
+/* Grilla de Áreas */
+.areas-grid-on-demand { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding-top: 40px; }
+.area-card-simple { border: 1px solid #e0e6ed; padding: 15px; background: white; border-radius: 8px; }
+.area-img-placeholder { width: 100%; height: 180px; background: #eee; margin-bottom: 15px; overflow: hidden; }
+.area-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+.btn-area-dark { 
+    display: block; 
+    background: #1a3a5a; 
+    color: white; 
+    text-align: center; 
+    padding: 12px; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    font-size: 0.9rem;
+}
+
+/* Estilo para las listas de puntos (bullets) */
+.lista-bullets {
+    padding-left: 20px;
+    list-style-type: disc; /* Esto pone el puntito sólido */
+}
+
+.lista-bullets li {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.sub-lista {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: circle; /* Puntito hueco para la sub-lista */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide los departamentos en 2 columnas */
+}
+
+/* Estilo para las FAQs */
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.faq-item:last-child { border: none; }
+
+.pregunta {
+    font-weight: 700;
+    color: #1a3a5a;
+    margin-bottom: 5px;
+}
+
+.respuesta {
+    color: #5a7a8f;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Mantenemos el hero y cursos centrados */
+    .hero-wrapper, .cursos-split-wrapper { flex-direction: column; text-align: center; }
+    .hero-text, .cursos-text-side { margin-bottom: 40px; text-align: center; }
+    .hero-text h1, .cursos-text-side h2 { text-align: center; font-size: 2.4rem; }
+    .hero-description, .cursos-description-p { margin: 0 auto; }
+    
+    /* AJUSTE PARA EL NAVBAR: El menú se envuelve */
+    .nav-menu {
+        display: flex; /* Asegúrate de que no esté 'none' */
+        flex-wrap: wrap; /* Esto permite que los botones bajen si no hay espacio */
+        justify-content: center;
+        gap: 15px; /* Reducimos el gap en móvil */
+        margin-top: 10px; /* Separación si baja el menú completo */
+    }
+    
+    .nav-menu a {
+        font-size: 0.85rem; /* Letra un poco más chica */
+    }
+}
+
+/* ==========================================================================
+   NUEVOS ESTILOS: BOTONES FLOTANTES (WhatsApp y Back to Top)
+   ========================================================================== */
+
+/* Botón de WhatsApp (Siempre visible) */
+.btn-whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 2100;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+    fill: white;
+}
+
+/* Botón Back to Top  */
+.back-to-top {
+    position: fixed;
+    bottom: 105px; /* Lo subimos para que no pise al de WhatsApp */
+    right: 32px;    /* Un poquito más centrado con el de abajo */
+    width: 55px;
+    height: 55px;
+    background-color: var(--white);
+    border: 2px solid #e0e6ed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilo de la flecha */
+.arrow-up {
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
+    transform: rotate(45deg);
+    margin-top: 4px;
+}
+
+/* Hovers */
+.btn-whatsapp-float:hover, .back-to-top:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+/* Ajuste para móviles */
+@media (max-width: 480px) {
+    .btn-whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+    .btn-whatsapp-float svg { width: 28px; height: 28px; }
+    .back-to-top { bottom: 85px; right: 22px; width: 45px; height: 45px; }
+}
