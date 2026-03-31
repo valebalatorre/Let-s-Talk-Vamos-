@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Quienes somos | Let's Talk Vamos!</title>
+    <title>Quiénes somos | Let's Talk Vamos!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
@@ -25,25 +27,29 @@
     </nav>
 
     <main>
-        <section class="section">
-            <div class="container">
+        <section class="section-nosotros">
+            <div class="container intro-text">
                 <h1>ACERCA DE NOSOTROS</h1>
                 <p>Somos una empresa especializada en formación de inglés para el sector hotelero y de hospitalidad. Nuestro enfoque se basa en la experiencia real de hoteleros que han trabajado en los mejores establecimientos del mundo, combinada con metodologías pedagógicas probadas.</p>
                 <p>Entendemos que el inglés en hotelería no es solo un idioma, sino una herramienta esencial para la excelencia en el servicio al huésped. Por eso, nuestros programas están diseñados para desarrollar no solo el lenguaje, sino también las habilidades culturales y de comunicación necesarias para destacar en este competitivo sector.</p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section-equipo">
             <div class="container">
-                <h2>Nuestro Equipo</h2>
-                <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;">
-                    <div style="text-align: center; flex: 1; min-width: 250px;">
-                        <img src="https://via.placeholder.com/200x200?text=Silvia+Portalanza" alt="Silvia Portalanza" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px;">
+                <h2 class="titulo-equipo">Nuestro Equipo</h2>
+                <div class="equipo-grid">
+                    <div class="miembro-card">
+                        <div class="miembro-img-wrapper">
+                            <img src="img/Silvia Perfil.png" alt="Silvia Portalanza">
+                        </div>
                         <h3>CO-FOUNDER</h3>
                         <h4>SILVIA PORTALANZA</h4>
                     </div>
-                    <div style="text-align: center; flex: 1; min-width: 250px;">
-                        <img src="https://via.placeholder.com/200x200?text=Catalina+Valero" alt="Catalina Valero" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px;">
+                    <div class="miembro-card">
+                        <div class="miembro-img-wrapper">
+                            <img src="img/Catalina Valero Perfil-test.png" alt="Catalina Valero">
+                        </div>
                         <h3>CO-FOUNDER</h3>
                         <h4>CATALINA VALERO</h4>
                     </div>
@@ -51,10 +57,10 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section-contacto-nosotros">
             <div class="container">
                 <h2>¿Quieres mejorar tu servicio?</h2>
-                <div class="hero-form">
+                <div class="nosotros-form">
                     <form>
                         <input type="text" placeholder="Nombre completo">
                         <input type="email" placeholder="Email">
@@ -67,24 +73,32 @@
     </main>
 
     <div class="footer-extra">
-        <div class="logo">
-            <img src="img/logo-2.png" alt="Let's Talk Vamos" style="height: 50px; filter: brightness(0) invert(1);">
-        </div>
         <div class="social-media">
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="LinkedIn">💼</a>
+            <h1>Seguinos en redes sociales</h1>
+            <a href="https://www.facebook.com/LetsTalkVamos" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook-f"></i> Facebook: Let's Talk Vamos
+            </a>
+            <a href="https://www.instagram.com/letstalkvamos/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i> Instagram: letstalkvamos
+            </a>
+            <a href="https://www.linkedin.com/company/letstalkvamos/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i> LinkedIn: Let's Talk Vamos
+            </a>
         </div>
+
         <div class="contact-info">
-            <p>📞 +54 9 11 5374-9216</p>
-            <p>✉️ info@letstalkvamos.com</p>
-            <p>📍 Buenos Aires, Argentina</p>
+            <h1>Contáctanos</h1>
+            <a href="https://wa.me/5491153749216?text=Hola!%20Me%20gustaría%20recibir%20información%20sobre" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> WhatsApp: +54 9 11 5374-9216
+            </a>
+            <a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i> Email: info@letstalkvamos.com
+            </a>
         </div>
     </div>
 
     <footer>
-        <p>Copyright © 2026 Let's Talk Vamos.</p>
-        <p>Diseñado por Balabits Studio.</p>
+        <p>Copyright © 2026 Let's Talk Vamos. | Diseñado por Balabits Studio.</p>
     </footer>
 
     <div class="floating-action-buttons">

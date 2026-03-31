@@ -38,7 +38,7 @@ body {
    ========================================================================== */
 .navbar {
     display: flex;
-    justify-content: center; 
+    justify-content: space-between; 
     align-items: center;
     flex-wrap: wrap; 
     gap: 15px 30px; 
@@ -50,7 +50,7 @@ body {
     width: 95%;
     margin: 20px auto;
     transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
-    position: sticky; /* O 'fixed' si prefieres que siempre flote */
+    position: sticky; 
     top: 20px;
     z-index: 1000;
 }
@@ -59,26 +59,35 @@ body {
     transform: translateY(-160%) !important;
 }
 
-.nav-menu { display: flex; list-style: none; gap: 25px; }
+.nav-menu { 
+    display: flex; 
+    list-style: none; 
+    gap: 25px;
+    margin-left: 40px;
+    margin-right: auto;
+}
+
 .nav-menu a { 
     text-decoration: none; 
     color: var(--text-dark); 
     font-weight: 500; 
     font-size: 0.95rem; 
     transition: var(--transition); 
+    white-space: nowrap;
 }
-.nav-menu a:hover { color: var(--logo-aqua); }
+.nav-menu a:hover { 
+    color: var(--logo-aqua); }
 
 .btn-cta-nav {
     background-color: var(--cta-subtle-blue);
     color: var(--primary-blue) !important;
-    padding: 8px 18px;          /* Reducido de 10px 20px */
+    padding: 8px 18px;
     border-radius: 50px;
     font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
-    box-shadow: 4px 10px 12px rgba(3, 63, 77, 0.274); /* Sombra un poco más suave */
+    box-shadow: 4px 10px 12px rgba(3, 63, 77, 0.274);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -89,42 +98,38 @@ body {
     filter: brightness(1.05);
 }
 
-/* Contenedor del logo para asegurar alineación */
 .logo {
     display: flex;
     align-items: center;
     height: 100%;
-    /* Contenedor pegado a la izquierda */
     justify-content: flex-start;
 }
 
 .logo img {
-    height: 90px;      /* 1. Subimos de 35px a 40px porque ahora la imagen es "puro logo" */
+    height: 90px;
     width: auto;
     display: block;
-    padding: 5px 0;    /* 2. Le damos un pequeño respiro arriba y abajo */
-    margin-left: 7px; /* 3. Lo separamos un poquito del borde izquierdo del navbar */
+    padding: 5px 0;
+
+    margin-left: 7px;
     transition: var(--transition);
 }
 
-/* Efecto sutil al pasar el mouse */
 .logo img:hover {
     transform: scale(1.05);
 }
 
-
-/* Responsive: pantallas medianas y pequenas. */
-@media (max-width: 992px) { /* se sube el breakpoint para cubrir media pantalla*/
+@media (max-width: 992px) {
     .logo img {
         height: 70px;
-        margin-left: 15px; /*Mantiene alineacion a la izquierda.*/
+        margin-left: 15px;
     } 
 }
 
-@media (max-width: 480px) { /*para celulares muy pequeños*/
+@media (max-width: 480px) {
     .logo img {
-        height: 50px;  /* 4. También lo subimos un poco en móvil para que no se pierda */
-        margin-left: 10;
+        height: 50px;
+        margin-left: 10px;
     }
 }
 
@@ -134,60 +139,46 @@ body {
         display: flex;
         justify-content: space-between; 
         align-items: center;
-        flex-wrap: nowrap; /* Prohibe terminantemente las dos líneas */
+        flex-wrap: nowrap; 
         padding: 10px 30px;
-        max-width: 1200px; /* Un poco más de aire para que entre todo en fila */
+        max-width: 1200px;
         width: 95%;
         margin: 20px auto;
     }
 
     .logo {
-        flex: 1; 
+        /* Eliminamos flex: 1 para que el logo ocupe solo su espacio natural */
         display: flex;
         justify-content: flex-start;
     }
 
     .nav-menu {
-        flex: 2; 
         display: flex;
-        justify-content: center;
-        gap: 20px; /* Espacio equilibrado entre links */
-        margin: 0;
-    }
-
-    .nav-menu a {
-        white-space: nowrap; /* Evita que los nombres largos de los links se corten */
-    }
-
-
-    /* Contenedor del Botón para alinearlo a la derecha */
-    .cta-container {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
+        list-style: none;
+        gap: 20px;
+        margin: 0 0 0 40px; /* Margen a la izquierda para separarlo del logo */
+        margin-right: auto;  /* ¡CLAVE! Esto empuja al botón CTA a la derecha */
+        justify-content: flex-start; /* Cambiado de center a flex-start */
     }
 
     .btn-cta-nav {
-        display: flex;           /* Flexbox interno para centrar el texto */
-        align-items: center;     /* Centrado vertical del texto */
-        justify-content: center; /* Centrado horizontal del texto */
-        min-width: 150px;        /* Ancho fijo para que no colapse */
-        height: 38px;            /* Altura fija para control total */
-        padding: 0 15px;
-        margin: 0;
-        text-align: center;
-        font-size: 0.8rem;
-        line-height: 1;          /* Reset del interlineado para evitar desvíos */
-        letter-spacing: 0.5px;  /* Un toque de espacio entre letras para que sea legible siendo chico */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 160px; /* Un poquito más ancho para que entre bien el texto */
+        height: 42px;
+        padding: 0 20px;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        margin-left: 20px; /* Separación mínima del menú */
     }
 }
 
-    /* Reducir separación con la sección de abajo */
-    .hero {
-        margin-top: -40px; /* Acerca el contenido a la navbar */
-        padding-top: 0;
-    }
-
+.hero {
+    margin-top: -40px;
+    padding-top: 0;
+}
 
 /* ==========================================================================
    3. HERO SECTION
@@ -197,7 +188,7 @@ body {
     display: flex;
     align-items: center;
     position: relative;
-    padding: 0 5%;
+    padding: 10 5%;
 }
 
 .hero-wrapper { 
@@ -246,32 +237,29 @@ body {
     resize: none; 
 }
 
-/* ----   AJUSTE DE PROXIMIDAD HERO ---- */
 @media (min-width: 1024px) {
     .hero {
-        height: auto;           /* Cambiamos 100vh por auto para que no fuerce espacio */
+        height: auto;
         min-height: 80vh; 
-        padding-top: 20px;      /* Reducimos el aire superior al mínimo */
-        margin-top: -20px;      /* Tiramos de la sección hacia arriba */
+        padding-top: 20px;
+        margin-top: -20px;
     }
 
     .hero-wrapper {
-        margin-top: 0;          /* Eliminamos márgenes residuales */
+        margin-top: 0;
         padding-top: 0;
     }
 }
 
-
 /* ==========================================================================
-   4. SECCIÓN CURSOS (Equilibrada y Sutil)
+   4. SECCIÓN CURSOS
    ========================================================================== */
 .cursos-new-layout {
-    padding: 80px 5%;
-    max-width: 1100px; /* Reducido ligeramente para mejor lectura */
+    padding: 50px 5%;
+    max-width: 1100px;
     margin: 0 auto;
-    /* Línea sutil superior para marcar inicio de sección sin bloques de color */
-    border-top: 1px solid rgba(143, 185, 185, 0.15); 
-    border-bottom: 1px solid rgba(143, 185, 185, 0.15);
+    border-top: 1px solid rgba(104, 110, 110, 0.178); 
+    border-bottom: 1px solid rgba(104, 110, 110, 0.178);
 }
 
 .cursos-split-wrapper {
@@ -284,17 +272,16 @@ body {
 .cursos-text-side {
     flex: 1.2;
     display: flex;
-    flex-direction: column; /* Permite ordenar tag -> título -> p -> botón */
+    flex-direction: column;
     text-align: left; 
 }
 
-/* TAG: Recto (90°) y arriba del título */
 .tag-label {
     align-self: flex-start;
     display: inline-block;
     padding: 4px 12px;
     border: 1px solid var(--logo-aqua);
-    border-radius: 0; /* Puntas rectas */
+    border-radius: 0;
     font-size: 0.7rem;
     font-weight: 700;
     color: var(--logo-aqua);
@@ -302,7 +289,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* TÍTULO: Tamaño balanceado */
 .cursos-text-side h2 {
     font-size: 2.6rem; 
     color: var(--primary-blue);
@@ -318,7 +304,6 @@ body {
     opacity: 0.85;
 }
 
-/* BOTÓN: Ubicado abajo del todo */
 .btn-explorar-rectangular {
     align-self: flex-start;
     background-color: var(--primary-blue);
@@ -341,13 +326,11 @@ body {
     flex: 1; 
 }
 
-/* IMAGEN: Forma original + Sombra difuminada */
 .image-container-styled {
     width: 100%;
-    border-radius: 15px; /* Tu forma original */
+    border-radius: 15px;
     overflow: hidden;
     aspect-ratio: 16 / 10;
-    /* Sombra difuminada suave en tono aqua */
     box-shadow: 0 25px 50px -12px rgba(143, 185, 185, 0.3);
 }
 
@@ -357,7 +340,6 @@ body {
     object-fit: cover;
 }
 
-/* Ajuste Responsive */
 @media (max-width: 992px) {
     .cursos-split-wrapper {
         flex-direction: column;
@@ -365,7 +347,7 @@ body {
     }
     
     .cursos-text-side {
-        align-items: center; /* Centra tag y botón en móvil */
+        align-items: center;
         text-align: center; 
     }
     
@@ -374,6 +356,7 @@ body {
         font-size: 2.2rem;
     }
 }
+
 /* ==========================================================================
    5. BOTONES Y ELEMENTOS COMUNES
    ========================================================================== */
@@ -396,7 +379,6 @@ button:hover, .btn-cta:hover {
     box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
 }
 
-/*-- Boton scroll down --*/
 .scroll-down {
     position: absolute; 
     bottom: 30px; 
@@ -407,19 +389,18 @@ button:hover, .btn-cta:hover {
     transition: var(--transition);
 }
 
-
 .scroll-icon { 
     width: 35px; 
     height: 35px;
-    background-color: var(--primary-blue); /* Fondo solido */  
-    border-radius: 50%; /*Boton circular*/ 
+    background-color: var(--primary-blue); 
+    border-radius: 50%; 
     margin: 0 auto 8px; 
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: var(--transition);
-    animation: bounce 2s infitine; /* Animacion sutil de rebote*/
+    animation: bounce 2s infinite; /* Ajuste: Corregido infinite */
 }
 
 .arrow-down {
@@ -438,13 +419,11 @@ button:hover, .btn-cta:hover {
     margin: 0;
 }
 
-/* HOVER */
 .scroll-down:hover .scroll-icon{
     background-color: var(--logo-aqua);
     transform: scale(1.1);
 }
 
-/* EFecto rebote */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
     40% {transform: translateY(-5px);}
@@ -454,72 +433,93 @@ button:hover, .btn-cta:hover {
 /* ==========================================================================
    6. SECCIONES Y FOOTER
    ========================================================================== */
-section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
 h2 { font-size: 2.5rem; color: var(--primary-blue); text-align: center; margin-bottom: 40px; }
 
 .logo-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
 .bw-logo { filter: grayscale(100%); opacity: 0.6; height: 50px; transition: var(--transition); }
 .bw-logo:hover { filter: grayscale(0%); opacity: 1; }
 
-footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-top: 50px; }
-
 .footer-extra {
-    background-color: var(--primary-blue);
-    padding: 40px 5%;
+    background-color: #2c515e;
+    padding: 15px 5% 20px 5%; /* Reducido de 60px a 30px */
+    padding-bottom: 15px; /* Ajuste específico para el padding inferior */
     color: white;
     text-align: center;
-}
-
-.footer-extra .logo {
-    margin-bottom: 20px;
-}
-
-.footer-extra .social-media {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.footer-extra .social-media a {
-    color: white;
-    font-size: 24px;
-    transition: var(--transition);
-}
-
-.footer-extra .social-media a:hover {
-    transform: scale(1.2);
-}
-
-.footer-extra .contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+    align-items: flex-start;
+    gap: 60px;
     flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.footer-extra .contact-info p {
-    display: flex;
+.footer-extra h1 {
+    font-size: 0.9rem; /* Letras más pequeñas (era 1.4rem) */
+    margin-bottom: 15px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.footer-extra a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    display: flex; 
     align-items: center;
-    gap: 10px;
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 5px;
+    transition: var(--transition);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+
+.footer-extra a i {
+    margin-right: 12px;
+    font-size: 0.8rem;
+    color: var(--logo-aqua);
+}
+
+.footer-extra a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+footer { 
+    background-color: #2c515e; 
+    padding: 10px 20px; 
+    text-align: left; 
+    margin-top: 0;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
     margin: 0;
+}
+
+.social-media, .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 
 /* ==========================================================================
-   SECCIÓN AHT - DISEÑO COMPACTO Y RECTO
+   7. SECCIÓN AHT - DISEÑO COMPACTO Y RECTO
    ========================================================================== */
-
 .aht-section {
-    padding: 60px 5%; /* Menos padding para que ocupe menos espacio vertical */
+    padding: 60px 5%; 
 }
 
 .aht-card-compact {
     background: var(--white);
-    max-width: 950px; /* Tarjeta más angosta para que sea más amable a la vista */
+    max-width: 950px; 
     margin: 0 auto;
-    border-radius: 20px; /* Redondeado suave en la tarjeta para no perder la estética general */
-    padding: 40px 50px; /* Reducimos el aire interno */
+    border-radius: 20px; 
+    padding: 40px 50px; 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
     border: 1px solid rgba(0, 0, 0, 0.03);
 }
@@ -534,7 +534,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     flex: 1.5;
 }
 
-/* Contenedor del Carrusel */
 .carousel-section {
     padding: 80px 0;
     display: flex;
@@ -544,14 +543,13 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 .mySwiper {
     width: 90%;
     max-width: 1100px;
-    height: 480px; /* Ajusta según el contenido */
+    height: 480px; 
     background: linear-gradient(135deg, #b3d9e9 0%, #e0e6ed 100%);
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     position: relative;
 }
 
-/* Slide de Logos */
 .logos-container-inner {
     display: flex;
     flex-direction: column;
@@ -585,7 +583,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     opacity: 1;
 }
 
-/* Slide de Testimonios (Estilo 2 columnas) */
 .testimonio-wrapper {
     display: flex;
     height: 100%;
@@ -597,7 +594,7 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 .autor-info {
     flex: 1;
     text-align: left;
-    color: #4a6fa5; /* Azul destacado */
+    color: #4a6fa5;
 }
 
 .autor-info h3 {
@@ -620,7 +617,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     position: relative;
 }
 
-/* Personalización de botones Swiper */
 .swiper-button-next, .swiper-button-prev {
     color: rgba(255, 255, 255, 0.7);
     transform: scale(0.7);
@@ -630,23 +626,21 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     background: #4a6fa5 !important;
 }
 
-/* TAG CON ÁNGULOS EN 90 GRADOS (Sin redondear) */
 .tag-institucional-rect {
     display: inline-block;
     padding: 4px 12px;
-    border: 1.5px solid var(--logo-aqua); /* Solo el borde recto */
+    border: 1.5px solid var(--logo-aqua);
     font-size: 0.65rem;
     font-weight: 800;
     color: var(--logo-aqua);
     letter-spacing: 2px;
     margin-bottom: 15px;
     text-transform: uppercase;
-    /* Sin border-radius para lograr los 90 grados */
 }
 
 .aht-info h2 {
     text-align: left;
-    font-size: 1.8rem; /* Título un poco más chico */
+    font-size: 1.8rem;
     line-height: 1.2;
     color: var(--primary-blue);
     margin-bottom: 20px;
@@ -670,7 +664,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     margin-top: 5px;
 }
 
-/* BOTÓN MÁS DISCRETO */
 .btn-aht-compact {
     display: inline-block;
     background-color: var(--primary-blue);
@@ -689,7 +682,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     box-shadow: 0 5px 15px rgba(26, 54, 93, 0.1);
 }
 
-/* LOGO MÁS CHICO */
 .aht-visual {
     flex: 1;
     display: flex;
@@ -704,12 +696,11 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 }
 
 .logo-aht-small {
-    width: 160px; /* Logo más moderado */
+    width: 160px;
     height: auto;
     display: block;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .aht-grid { flex-direction: column; text-align: center; }
     .aht-info h2 { text-align: center; }
@@ -720,23 +711,19 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 /* ==========================================================================
    8. TEST DE NIVELACION
    ========================================================================== */
-
-
-/* Sección de ancho completo */
 .test-section-full {
     width: 100%;
     max-width: 1600px;
     margin: 40px auto;
     border-radius: 12px;
-    background-color: #e0e0e0; /* Color de fondo que llega a los costados */
-    padding: 0; /* Controla el espacio con las secciones de arriba/abajo */
+    background-color: #e0e0e0;
+    padding: 0;
     display: flex;
     justify-content: center;
     transition: background-color 0.3s ease;
     overflow: hidden;
 }
 
-/* El link ahora ocupa el ancho pero el contenido se mantiene centrado */
 .test-full-link {
     text-decoration: none;
     width: 100%;
@@ -745,18 +732,17 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 }
 
 .test-content-wrapper {
-    max-width: 800px; /* Mantiene el texto legible y no tan estirado */
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
     padding: 20px;
 }
 
-/* Estilos de texto */
 .test-content-wrapper h2 {
     color: #1a3a5a;
     font-size: 2.5rem;
     margin-bottom: 15px;
-    font-family: 'Playfair Display', serif; /* O la que uses para títulos */
+    font-family: 'Playfair Display', serif;
 }
 
 .test-content-wrapper p {
@@ -766,7 +752,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     margin-bottom: 30px;
 }
 
-/* Botón/Call to action */
 .btn-mock {
     color: #4a6fa5;
     font-weight: 700;
@@ -776,51 +761,235 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     transition: all 0.3s ease;
 }
 
-/* Efecto Hover en toda la sección */
 .test-section-full:hover {
-    background-color: #f1f1f1; /* Un cambio sutil al pasar el mouse */
+    background-color: #f1f1f1;
     box-shadow: 0 15px 20px rgba(112, 164, 207, 0.808);
     filter: brightness(1);
 }
 
 .test-full-link:hover .btn-mock {
     text-decoration: underline;
-    letter-spacing: 2px; /* Pequeña animación de expansión */
+    letter-spacing: 2px;
+}
+
+.nivelacion-form {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-pill);
+    max-width: 600px;
+    margin: 0 auto;
+}
+.nivelacion-form h3 {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+.nivelacion-form input, .nivelacion-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-family: inherit;
+    resize: none;
+}
+
+/*
+   PAGINA DE NIVELACIÓN (UNIFICADO)
+ */
+
+.nivelacion-page .header-intro {
+    text-align: center;
+    background-color: rgba(87, 104, 105, 0.171);
+    padding-bottom: 40px;
+
+    padding: 80px 5%; /* Más aire para que el cristal respire */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+   /*
+    PAGINA DE NIVELACIÓN (CON EFECTO CRISTAL)
+   */
+
+.nivelacion-page .header-intro {
+    text-align: center;
+    /* Creamos un fondo dinámico con tus colores para que el cristal resalte */
+    background: linear-gradient(135deg, #366273 0%, #8FB9B9 100%); 
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.nivelacion-page .header-intro .container {
+    max-width: 100% !important; /* Permitimos que ocupe todo el ancho */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.glass-header {
+    /* Transparencia blanca sutil */
+    background: rgba(255, 255, 255, 0.2); 
+    
+    /* El efecto de desenfoque de vidrio */
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px); 
+    
+    padding: 40px 20px;
+    border-radius: 20px;
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+    
+    /* Bordes brillantes para simular el canto del vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    
+    /* Sombra suave para dar volumen */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Forzamos el color del texto para que contraste con el fondo azul/aqua */
+.glass-header h1 {
+    font-size: 2.8rem;
+    color: #ffffff; /* Blanco para máxima legibilidad sobre el azul */
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.glass-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .glass-header {
+        padding: 40px 30px;
+        border-radius: 15px;
+    }
+    .glass-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+.nivelacion-page h1 {
+    font-size: 2.8rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Layout de dos columnas */
+.split-wrapper {
+    display: flex;
+    gap: 60px; /* Usamos un gap generoso para que no se peguen */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.split-text, .split-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Efecto de alternancia (Imagen izquierda/derecha) */
+.split-section.reverse .split-wrapper {
+    flex-direction: row-reverse;
+}
+
+.split-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow-pill);
+    transition: transform 0.3s ease;
+}
+
+.split-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Estilo de las listas de beneficios */
+.check-list {
+    list-style: none;
+    padding: 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+}
+
+/* Agregamos un check visual con el color aqua de tu marca */
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--logo-aqua);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Responsive para tablets y móviles */
+@media (max-width: 768px) {
+    .split-wrapper {
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .split-section.reverse .split-wrapper {
+        flex-direction: column; /* En móvil siempre texto arriba e imagen abajo */
+    }
+    
+    .check-list li {
+        text-align: left;
+    }
 }
 
 /* ==========================================================================
    9. PAGINA CURSOS
    ========================================================================== */
-/* Sección General */
 .cursos-section {
     padding: 60px 0;
-    background: white; /* O el color de fondo general de tu web */
     text-align: center;
 }
 
-/* Título sin marcador ni resaltado */
 .titulo-cursos-limpio {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
-    color: #1a3a5a;
+    color: var(--primary-blue);
     margin-bottom: 50px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-/* Grilla de Tarjetas */
 .cursos-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 80px; /* Más espacio entre tarjetas para que respiren */
+    gap: 80px;
     max-width: 950px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Estilo de la Tarjeta */
 .curso-card {
-    background: #ffffff;
+    background: #a8c0ca79;
     border: 2px solid #e0e6ed;
     border-radius: 12px;
     padding: 45px;
@@ -828,16 +997,34 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     flex-direction: column;
     justify-content: space-between;
     transition: all 0.3s ease;
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
 }
 
-/* Efecto hover suave solo en la tarjeta */
+.curso-card:nth-child(1) { animation-delay: 0.1s; }
+.curso-card:nth-child(2) { animation-delay: 0.2s; }
+.curso-card:nth-child(3) { animation-delay: 0.3s; }
+.curso-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .curso-card:hover {
-    border-color: #b3d9e9;
-    box-shadow: 0 20px 25px rgba(0, 1, 2, 0.05);
+    border-color: #a8c0cadc;
+    background-color: #d1e6f07e;
+    box-shadow: 0 20px 25px rgba(0, 1, 2, 0.11);
 }
 
 .curso-header h3 {
-    color: #1a3a5a;
+    color: var(--primary-blue);
     font-size: 1.3rem;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -863,15 +1050,14 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     line-height: 1.5;
 }
 
-/* Botón Rectangular estilo imagen */
 .btn-cursos {
     display: inline-block;
     padding: 12px 0;
-    width: 100%; /* Ocupa el ancho de la tarjeta como en tu captura */
+    width: 100%;
     max-width: 200px;
     margin: 0 auto;
-    border: 3px solid #042352;
-    color: #042352;
+    border: 3px solid var(--primary-blue);
+    color: var(--primary-blue);
     text-decoration: none;
     border-radius: 4px;
     font-weight: 600;
@@ -879,31 +1065,35 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 }
 
 .btn-cursos:hover {
-    background-color: #042352;
+    background-color: var(--primary-blue);
     color: white;
-    border-color: #042352;
+    border-color: var(--primary-blue);
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-    .cursos-grid {
-        grid-template-columns: 1fr;
-    }
-    .titulo-cursos-limpio {
-        font-size: 1.8rem;
-    }
+    .cursos-grid { grid-template-columns: 1fr; }
+    .titulo-cursos-limpio { font-size: 1.8rem; }
 }
 
 /* ==========================================================================
    10. PAGINA ON-DEMAND
    ========================================================================== */
+.on-demand-intro { 
+    padding: 50px 0
+}
 
-.on-demand-intro { padding: 50px 0; background-color: #fcfcfc; }
-.titulo-seccion-itálico { font-family: 'Playfair Display', serif; font-style: italic; color: #1a3a5a; font-size: 2.8rem; margin-bottom: 40px; }
+.titulo-seccion-itálico { 
+    text-align: center; 
+    font-family: 'Playfair Display', serif; 
+    font-style: italic; 
+    color: var(--primary-blue); 
+    font-size: 3.2rem; 
+    margin-bottom: 40px; 
+    text-transform: uppercase;
+}
 
 .info-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
 
-/* Caja con borde punteado de tu captura */
 .info-box.box-dashed { border: 2px dashed #b3d9e9; padding: 30px; border-radius: 10px; }
 .info-box.box-simple { border: 1px solid #e0e6ed; padding: 30px; border-radius: 10px; background: white; }
 
@@ -913,7 +1103,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 .acordion-item summary { padding: 15px; font-weight: 600; list-style: none; outline: none; }
 .acordion-content { background: white; color: #333; padding: 20px; border: 1px solid #1a3a5a; }
 
-/* Grilla de Áreas */
 .areas-grid-on-demand { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding-top: 40px; }
 .area-card-simple { border: 1px solid #e0e6ed; padding: 15px; background: white; border-radius: 8px; }
 .area-img-placeholder { width: 100%; height: 180px; background: #eee; margin-bottom: 15px; overflow: hidden; }
@@ -931,74 +1120,46 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     font-size: 0.9rem;
 }
 
-/* Estilo para las listas de puntos (bullets) */
-.lista-bullets {
-    padding-left: 20px;
-    list-style-type: disc; /* Esto pone el puntito sólido */
-}
+.lista-bullets { padding-left: 20px; list-style-type: disc; }
+.lista-bullets li { margin-bottom: 10px; color: #444; }
+.sub-lista { margin-top: 10px; padding-left: 20px; list-style-type: circle; display: grid; grid-template-columns: 1fr 1fr; }
 
-.lista-bullets li {
-    margin-bottom: 10px;
-    color: #444;
-}
-
-.sub-lista {
-    margin-top: 10px;
-    padding-left: 20px;
-    list-style-type: circle; /* Puntito hueco para la sub-lista */
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide los departamentos en 2 columnas */
-}
-
-/* Estilo para las FAQs */
-.faq-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
 .faq-item:last-child { border: none; }
-
-.pregunta {
-    font-weight: 700;
-    color: #1a3a5a;
-    margin-bottom: 5px;
-}
-
-.respuesta {
-    color: #5a7a8f;
-    font-size: 0.95rem;
-}
+.pregunta { font-weight: 700; color: #1a3a5a; margin-bottom: 5px; }
+.respuesta { color: #5a7a8f; font-size: 0.95rem; }
 
 /* ==========================================================================
-   11. RESPONSIVE
+   11. RESPONSIVE Y BOTONES FLOTANTES
    ========================================================================== */
 @media (max-width: 992px) {
-    /* Mantenemos el hero y cursos centrados */
-    .hero-wrapper, .cursos-split-wrapper { flex-direction: column; text-align: center; }
-    .hero-text, .cursos-text-side { margin-bottom: 40px; text-align: center; }
-    .hero-text h1, .cursos-text-side h2 { text-align: center; font-size: 2.4rem; }
-    .hero-description, .cursos-description-p { margin: 0 auto; }
+    .hero-wrapper, 
+    .cursos-split-wrapper { 
+        flex-direction: column; text-align: center; }
+
+    .hero-text, 
+    .cursos-text-side { 
+        margin-bottom: 40px; text-align: center; }
+
+    .hero-text h1, 
+    .cursos-text-side h2 { 
+        text-align: center; font-size: 2.4rem; }
+
+    .hero-description, 
+    .cursos-description-p { 
+        margin: 0 auto; }
     
-    /* AJUSTE PARA EL NAVBAR: El menú se envuelve */
     .nav-menu {
-        display: flex; /* Asegúrate de que no esté 'none' */
-        flex-wrap: wrap; /* Esto permite que los botones bajen si no hay espacio */
+        display: flex; 
+        flex-wrap: wrap; 
         justify-content: center;
-        gap: 15px; /* Reducimos el gap en móvil */
-        margin-top: 10px; /* Separación si baja el menú completo */
+        gap: 15px; 
+        margin-top: 10px; 
     }
     
-    .nav-menu a {
-        font-size: 0.85rem; /* Letra un poco más chica */
-    }
+    .nav-menu a { font-size: 0.85rem; }
 }
 
-/* ==========================================================================
-   NUEVOS ESTILOS: BOTONES FLOTANTES (WhatsApp y Back to Top)
-   ========================================================================== */
-
-/* Botón de WhatsApp (Siempre visible) */
 .btn-whatsapp-float {
     position: fixed;
     bottom: 30px;
@@ -1015,22 +1176,17 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     transition: all 0.3s ease;
 }
 
-.btn-whatsapp-float svg {
-    width: 35px;
-    height: 35px;
-    fill: white;
-}
+.btn-whatsapp-float svg { width: 35px; height: 35px; fill: white; }
 
-/* Botón Back to Top  */
 .back-to-top {
     position: fixed;
-    bottom: 105px; /* Lo subimos para que no pise al de WhatsApp */
-    right: 32px;    /* Un poquito más centrado con el de abajo */
-    width: 55px;
-    height: 55px;
+    bottom: 105px; 
+    right: 32px;    
+    width: 55px;  
+    height: 55px; 
     background-color: var(--white);
-    border: 2px solid #e0e6ed;
-    border-radius: 50%;
+    border: 1px solid #e0e6ed;
+    border-radius: 50%; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1039,29 +1195,527 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    padding: 0;
+    outline: none;
 }
 
-.back-to-top.visible {
+.back-to-top .arrow-svg { width: 24px; height: 24px; color: var(--primary-blue); display: block; }
+
+.back-to-top:hover {
+    background-color: var(--primary-blue);
+    transform: scale(1.1) translateY(-5px);
+    border-color: var(--primary-blue);
+}
+
+.back-to-top:hover .arrow-svg { color: white; }
+
+.btn-whatsapp-float:hover { transform: scale(1.1) translateY(-5px); }
+
+.back-to-top.show { /* Esta clase la agregaremos con JS */
     opacity: 1;
     visibility: visible;
 }
 
-/* Estilo de la flecha */
-.arrow-svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--primary-blue);
-}
-
-/* Hovers */
-.btn-whatsapp-float:hover, .back-to-top:hover {
-    transform: scale(1.1) translateY(-5px);
-}
-
-/* Ajuste para móviles */
+/* Ajuste final para móviles pequeños */
 @media (max-width: 480px) {
-    .btn-whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-    .btn-whatsapp-float svg { width: 28px; height: 28px; }
-    .back-to-top { bottom: 85px; right: 22px; width: 45px; height: 45px; }
+    .btn-whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .back-to-top {
+        bottom: 85px; 
+        right: 22px;
+        width: 45px;
+        height: 45px;
+    }
+    .footer-extra { flex-direction: column; gap: 30px; }
+}
+
+/* ==========================================================================
+   10. FORMULARIO AHT
+   ========================================================================== */
+.aht-form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 40px 20px;
+    background-color: var(--bg-color);
+}
+
+.aht-form-container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(143, 185, 185, 0.2);
+    border-radius: 16px;
+    padding: 50px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.aht-form-container h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    margin-bottom: 35px;
+    line-height: 1.3;
+}
+
+.aht-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+    padding: 12px 14px;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    background-color: #f9f9f9;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--logo-aqua);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(143, 185, 185, 0.1);
+}
+
+.whatsapp-input {
+    display: flex;
+    gap: 8px;
+}
+
+.whatsapp-input select {
+    min-width: 140px;
+    padding: 12px 10px;
+}
+
+.whatsapp-input input {
+    flex: 1;
+}
+
+/* Radio Buttons */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.radio-item,
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.radio-item input[type="radio"],
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--logo-aqua);
+}
+
+.radio-item label,
+.checkbox-item label {
+    cursor: pointer;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.radio-item input[type="radio"]:checked + label,
+.checkbox-item input[type="checkbox"]:checked + label {
+    color: var(--primary-blue);
+}
+
+/* Checkboxes Verticales */
+.checkbox-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.checkbox-group-vertical .checkbox-item {
+    padding-left: 5px;
+}
+
+/* Botón Submit */
+.btn-submit {
+    padding: 14px 30px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(26, 54, 93, 0.2);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+    .aht-form-section {
+        min-height: auto;
+        padding: 20px 15px;
+    }
+
+    .aht-form-container {
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+
+    .aht-form-container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+    }
+
+    .whatsapp-input {
+        flex-direction: column;
+    }
+
+    .whatsapp-input select {
+        min-width: auto;
+    }
+}
+
+/* ==========================================================================
+  11. SECCIÓN ÁREAS ON-DEMAND
+   ========================================================================== */
+
+.areas-section {
+    padding: 60px 0 100px;
+    background-color: var(--color-fondo-base); /* Mantiene tu paleta */
+}
+
+.subtitulo-areas {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #366273; /* Azul primario de la marca */
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.areas-grid-on-demand {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* La Card como botón total */
+.area-card {
+    display: block;
+    text-decoration: none;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden; /* Corta la imagen para que respete el radio */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(143, 185, 185, 0.2); /* Borde sutil aqua */
+}
+
+.area-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.area-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la foto al rectángulo sin deformar */
+    transition: transform 0.6s ease;
+}
+
+.area-info {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.area-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #366273;
+    margin: 0;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* EFECTOS HOVER */
+.area-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(54, 98, 115, 0.15);
+}
+
+.area-card:hover .area-image img {
+    transform: scale(1.1); /* Zoom en la foto */
+}
+
+.area-card:hover .area-info h3 {
+    color: #8FB9B9; /* El título cambia a tu color aqua diferenciador */
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .areas-grid-on-demand { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .areas-grid-on-demand { grid-template-columns: 1fr; }
+    .area-image { height: 200px; }
+}
+
+
+/* ==========================================================================
+  12. SECCIÓN NOSOTROS 
+   ========================================================================== */
+
+/* --- Estilos Sección Quiénes Somos --- */
+
+.section-nosotros {
+    padding: 40px 0 40px;
+    background-color: #fdfdfd;
+    text-align: center;
+    border-radius: 20px;
+
+}
+
+.intro-text h1 {
+    font-family: 'Playfair Display', serif;
+    color: #366273;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.intro-text p {
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
+}
+
+/* --- Sección Equipo --- */
+
+.section-equipo {
+    padding: 40px 0 60px;
+}
+
+.titulo-equipo {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: #366273;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.equipo-grid {
+    display: flex;
+    gap: 30px; /* Reducido para que no haya tanto espacio */
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.miembro-card {
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.miembro-img-wrapper {
+    margin-bottom: 20px;
+}
+
+.miembro-img-wrapper img {
+    width: 180px; /* Un poco más pequeño para mayor elegancia */
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #8FB9B9; /* Toque de color de tu marca */
+    padding: 5px;
+}
+
+.miembro-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #8FB9B9;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.miembro-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Ajustes para el formulario en esta página */
+.section-contacto-nosotros {
+    background: var(--white); 
+    padding: 35px; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow-pill); 
+    width: 420px; 
+    margin-bottom: 40px;
+}
+
+.section-contacto-nosotros h2 {
+    margin-bottom: 20px; 
+    color: var(--primary-blue); 
+}
+
+
+ /* (FORMULARIO DE CONTACTO) */
+/*
+.nosotros-form { 
+    background: var(--white); 
+    padding: 35px; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow-pill); 
+    width: 420px; 
+}
+
+.nosotros-form h3 { 
+    margin-bottom: 20px; 
+    color: var(--primary-blue); 
+}*/
+
+.section-contacto-nosotros input, .section-contacto-nosotros textarea { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 15px; 
+    border: 1px solid #eee; 
+    border-radius: 8px; 
+    background: #f9f9f9; 
+    font-family: inherit; 
+    resize: none; 
+} 
+
+/* ==========================================================================
+  13. TESTIMONIOS Y CLIENTES 
+   ========================================================================== */
+
+
+.clientes-section {
+    padding: 80px 10%;
+    background-color: #fdfdfd; /* Un blanco roto muy suave */
+    border-radius: 5%; /* Bordes redondeados para un look más amigable */
+    margin-bottom: 20px;
+}
+
+.titulo-clientes {
+    text-align: center;
+    font-family: 'Playfair Display', serif; /* Tu fuente elegante */
+    color: #366273;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+}
+
+.clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas desktop */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.region-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #8FB9B9; /* Tu color aqua diferencial */
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(143, 185, 185, 0.3);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.hotel-list {
+    list-style: none;
+    padding: 0;
+}
+
+.hotel-list li {
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    font-size: 1rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.hotel-list li:hover {
+    color: #366273;
+    padding-left: 8px; /* Pequeño desplazamiento al pasar el mouse */
+}
+
+/* Espaciador para regiones en la misma columna */
+.mt-40 {
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .clientes-grid { grid-template-columns: repeat(2, 1fr); }
+    .titulo-clientes { font-size: 2.2rem; }
+}
+
+@media (max-width: 600px) {
+    .clientes-grid { grid-template-columns: 1fr; }
 }

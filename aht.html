@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Beneficios AHT | Let's Talk Vamos!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
@@ -17,32 +19,147 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="cursos.html">Cursos</a></li>
             <li><a href="aht.html">Beneficios AHT</a></li>
-            <li><a href="test-nivelacion.html">Test de Nivelación</a></li>
+            <li><a href="test-nivelacion.html">Evaluación de Nivelación</a></li>
             <li><a href="quienes-somos.html">Quiénes somos</a></li>
             <li><a href="testimonios.html">Ya nos eligieron</a></li>
         </ul>
         <a href="#becas" class="btn-cta-nav">Solicitá una beca</a>
     </nav>
 
+    <main class="aht-form-section">
+        <div class="aht-form-container">
+            <h2>¿Eres miembro AHT Argentina? Contanos tus necesidades.</h2>
+            <form class="aht-form">
+                <!-- Campos de Texto -->
+                <div class="form-group">
+                    <label for="nombre">Nombre y Cargo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan García - Recepcionista" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hotel">Hotel</label>
+                    <input type="text" id="hotel" name="hotel" placeholder="Nombre de tu hotel" required>
+                </div>
+
+                <!-- WhatsApp con prefijo internacional -->
+                <div class="form-group whatsapp-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <div class="whatsapp-input">
+                        <select id="country-code" name="country-code">
+                            <option value="+54">🇦🇷 +54 (Argentina)</option>
+                            <option value="+55">🇧🇷 +55 (Brasil)</option>
+                            <option value="+56">🇨🇱 +56 (Chile)</option>
+                            <option value="+57">🇨🇴 +57 (Colombia)</option>
+                            <option value="+51">🇵🇪 +51 (Perú)</option>
+                            <option value="+1">🇺🇸 +1 (EEUU / Canadá)</option>
+                            <option value="+34">🇪🇸 +34 (España)</option>
+                        </select>
+                        <input type="text" id="whatsapp" name="whatsapp" placeholder="11 5374-9216">
+                    </div>
+                </div>
+
+                <!-- Membresía AHT (Radio Buttons) -->
+                <div class="form-group">
+                    <label>Tu membresía AHT</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="socio-pleno" name="membresia" value="socio-pleno" checked>
+                            <label for="socio-pleno">Socio Pleno 30% descuento</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="socio-activo" name="membresia" value="socio-activo">
+                            <label for="socio-activo">Socio Activo 15% descuento</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tipo de curso (Checkboxes) -->
+                <div class="form-group">
+                    <label>Tipo de curso que te interesa</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="talleres" name="tipo-curso" value="talleres">
+                            <label for="talleres">Talleres 2 horas por Zoom</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="cursos-3m" name="tipo-curso" value="cursos-3m">
+                            <label for="cursos-3m">Cursos de 3 meses</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Áreas de interés (Checkboxes en lista vertical) -->
+                <div class="form-group">
+                    <label>Áreas de interés</label>
+                    <div class="checkbox-group-vertical">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="recepcion" name="areas" value="recepcion">
+                            <label for="recepcion">Recepción</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="conciergeria" name="areas" value="conciergeria">
+                            <label for="conciergeria">Conserjería</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="restaurante" name="areas" value="restaurante">
+                            <label for="restaurante">Restaurante</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="housekeeping" name="areas" value="housekeeping">
+                            <label for="housekeeping">Housekeeping</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="mantenimiento" name="areas" value="mantenimiento">
+                            <label for="mantenimiento">Mantenimiento</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="spa" name="areas" value="spa">
+                            <label for="spa">Spa</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="site-inspections" name="areas" value="site-inspections">
+                            <label for="site-inspections">Site Inspections</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar consulta</button>
+            </form>
+        </div>
+    </main>
+
     <div class="footer-extra">
-        <div class="logo">
-            <img src="img/logo-2.png" alt="Let's Talk Vamos" style="height: 50px; filter: brightness(0) invert(1);">
-        </div>
         <div class="social-media">
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="LinkedIn">💼</a>
+            <h1>Seguinos en redes sociales</h1>
+            <a href="https://www.facebook.com/LetsTalkVamos" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook-f"></i> Facebook: Let's Talk Vamos
+            </a>
+            <a href="https://www.instagram.com/letstalkvamos/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i> Instagram: letstalkvamos
+            </a>
+            <a href="https://www.linkedin.com/company/letstalkvamos/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i> LinkedIn: Let's Talk Vamos
+            </a>
         </div>
+
         <div class="contact-info">
-            <p>📞 +54 9 11 5374-9216</p>
-            <p>✉️ info@letstalkvamos.com</p>
-            <p>📍 Buenos Aires, Argentina</p>
+            <h1>Contáctanos</h1>
+            <a href="https://wa.me/5491153749216?text=Hola!%20Me%20gustaría%20recibir%20información%20sobre" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> WhatsApp: +54 9 11 5374-9216
+            </a>
+            <a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i> Email: info@letstalkvamos.com
+            </a>
         </div>
     </div>
 
     <footer>
-        <p>Copyright © 2026 Let's Talk Vamos.</p>
-        <p>Diseñado por Balabits Studio.</p>
+        <p>Copyright © 2026 Let's Talk Vamos. | Diseñado por Balabits Studio.</p>
     </footer>
 
     <div class="floating-action-buttons">
