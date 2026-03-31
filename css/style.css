@@ -909,7 +909,6 @@ footer { background-color: #E8E4E1; padding: 20px; text-align: center; margin-to
 
 .txt-bold { font-weight: 700; color: #1a3a5a; margin-bottom: 5px; }
 
-/* Acordeones Azules */
 .acordion-item { background: #1a3a5a; color: white; margin-bottom: 10px; border-radius: 5px; cursor: pointer; }
 .acordion-item summary { padding: 15px; font-weight: 600; list-style: none; outline: none; }
 .acordion-content { background: white; color: #333; padding: 20px; border: 1px solid #1a3a5a; }
