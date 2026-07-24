@@ -41,6 +41,7 @@
                             <li><a href="housekeeping.html">Housekeeping</a></li>
                             <li><a href="site-inspections.html">Site Inspections</a></li>
                             <li><a href="negotiations.html">Negotiations</a></li>
+                            <li><a href="de-escalation.html">Problem De-escalation</a></li>
                         </ul>
                     </li>
                     <li><a href="talleres.html">Talleres</a></li>
@@ -54,12 +55,17 @@
             <li><a href="testimonios.html">Ya nos eligieron</a></li>
         </ul>
         <div>
-            <a href="#becas" class="btn-cta-nav">Solicitá una beca</a>
+            <a href="becas.html#becas" class="btn-cta-nav">Solicitá una beca</a>
         </div>
+        <button type="button" class="nav-hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
 <main class="talleres-page">
-    <section id="becas" class="section header-intro">
+    <section class="section header-intro">
         <div class="container">
             <div class="glass-header">
                 <h1>Contenido Talleres por Área</h1>
@@ -68,36 +74,61 @@
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="titulo-limpio">Niveles y Modalidad</h2>
-        <div class="info-split-grid">
-            <div class="info-box">
-                <h3>Nivel Básico</h3>
-                <ul class="check-list">
-                    <li>1 encuentro de 1 hora por Zoom</li>
-                    <li>1 mes de coaching individual</li>
-                    <li>Materiales de por vida + Certificado</li>
-                </ul>
-            </div>
-            <div class="info-box">
-                <h3>Nivel Intermedio</h3>
-                <ul class="check-list">
-                    <li>2 encuentros de 1 hora por Zoom</li>
-                    <li>3 meses de coaching individual</li>
-                    <li>Materiales de por vida + Certificado</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="titulo-limpio">Horarios de Julio (Zoom)</h2>
-        <div class="horarios-image">
-            <img src="img/TALLERES hs/HorariosJulioLATAM-svg.svg" alt="Horarios de talleres Julio LATAM">
-        </div>
-    </section>
-
     <section class="section split-section">
+        <div class="container split-wrapper niveles-wrapper">
+            <div class="split-image">
+                <h2 class="titulo-limpio titulo-limpio-small">Horarios de Julio (Zoom)</h2>
+                <div class="horarios-image">
+                    <img src="img/TALLERES hs/HorariosJulioLATAM-svg.svg" alt="Horarios de talleres Julio LATAM">
+                </div>
+            </div>
+            <div class="split-text niveles-col">
+                <h2 class="titulo-limpio titulo-limpio-small">Niveles y Modalidad</h2>
+                <div class="info-split-grid-compact">
+                    <div class="info-box-compact">
+                        <h3>Nivel Inicial</h3>
+                        <ul class="check-list">
+                            <li>1 encuentro de 1 hora por Zoom</li>
+                            <li>1 mes de coaching individual</li>
+                            <li>Materiales de por vida + Certificado</li>
+                        </ul>
+                    </div>
+                    <div class="info-box-compact">
+                        <h3>Nivel Básico o Intermedio</h3>
+                        <ul class="check-list">
+                            <li>2 encuentros de 1 hora por Zoom</li>
+                            <li>3 meses de coaching individual</li>
+                            <li>Materiales de por vida + Certificado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="botones-talleres">
+                    <a href="#primer-programa" class="btn-cta btn-scroll-slow">PROGRAMAS</a>
+                    <a href="becas.html#becas" class="btn-secondary">
+                        Semi-becas
+                        <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="aht.html" class="btn-secondary">
+                        Descuentos AHT
+                        <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="index.html#formulario-general" class="btn-secondary">
+                        Descuentos Corporativos
+                        <svg class="nav-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="primer-programa" class="section split-section">
         <div class="container split-wrapper">
             <div class="split-image-placeholder">
                 <i class="fas fa-image"></i>

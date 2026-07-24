@@ -86,7 +86,59 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// 6.Swiper testimonios (solo en páginas que lo incluyen)
+// 5b. Botón hamburguesa (notebooks chicas, tablets y celulares)
+const navHamburger = document.querySelector(".nav-hamburger");
+if (navHamburger) {
+    navHamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = navbar.classList.toggle("nav-open");
+        navHamburger.setAttribute("aria-expanded", String(isOpen));
+        if (!isOpen) {
+            document.querySelectorAll(".nav-item-dropdown.open, .nav-dropdown-item.open").forEach((el) => {
+                el.classList.remove("open");
+            });
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (navbar.classList.contains("nav-open") && !e.target.closest(".navbar")) {
+            navbar.classList.remove("nav-open");
+            navHamburger.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && navbar.classList.contains("nav-open")) {
+            navbar.classList.remove("nav-open");
+            navHamburger.setAttribute("aria-expanded", "false");
+        }
+    });
+}
+
+// 6. Scroll suave y lento hacia una sección (ej: botón "Programas")
+document.querySelectorAll(".btn-scroll-slow").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        const targetId = btn.getAttribute("href");
+        const target = targetId ? document.querySelector(targetId) : null;
+        if (!target) return;
+        e.preventDefault();
+
+        const duration = 1400;
+        const startY = window.scrollY;
+        const endY = target.getBoundingClientRect().top + startY - 20;
+        const startTime = performance.now();
+
+        function step(now) {
+            const t = Math.min((now - startTime) / duration, 1);
+            const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+            window.scrollTo(0, startY + (endY - startY) * eased);
+            if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    });
+});
+
+// 7.Swiper testimonios (solo en páginas que lo incluyen)
 if (typeof Swiper !== "undefined" && document.querySelector(".mySwiper")) {
     const swiper = new Swiper(".mySwiper", {
         loop: true,

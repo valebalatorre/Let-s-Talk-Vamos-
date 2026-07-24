@@ -7,6 +7,7 @@
     <title>Becas | Let's Talk Vamos!</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/css/intlTelInput.css">
 </head>
 <body>
     <nav class="navbar">
@@ -41,6 +42,7 @@
                             <li><a href="housekeeping.html">Housekeeping</a></li>
                             <li><a href="site-inspections.html">Site Inspections</a></li>
                             <li><a href="negotiations.html">Negotiations</a></li>
+                            <li><a href="de-escalation.html">Problem De-escalation</a></li>
                         </ul>
                     </li>
                     <li><a href="talleres.html">Talleres</a></li>
@@ -56,14 +58,70 @@
         <div>
             <a href="#becas" class="btn-cta-nav">Solicitá una beca</a>
         </div>
+        <button type="button" class="nav-hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
-    <section id="becas" class="section">
-        <div class="container">
-            <h1>Becas Disponibles</h1>
-            <p>Información sobre becas próximamente.</p>
+    <main class="aht-form-section">
+        <div class="aht-form-container" id="becas">
+            <h2>¿Necesitas una Beca?</h2>
+            <p class="form-subheading">Aplica aquí</p>
+            <form class="aht-form">
+                <div class="form-group">
+                    <label for="nombre-beca">Nombre y Apellido</label>
+                    <input type="text" id="nombre-beca" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taller-interes">¿Qué taller te interesa?</label>
+                    <select id="taller-interes" name="taller-interes" required>
+                        <option value="" disabled selected>Seleccioná una opción</option>
+                        <option value="recepcion">Inglés para Recepción</option>
+                        <option value="conserjeria">Inglés para Conserjería</option>
+                        <option value="housekeeping">Inglés para Housekeeping</option>
+                        <option value="mantenimiento">Inglés para Mantenimiento</option>
+                        <option value="restaurante">Inglés para Restaurante</option>
+                        <option value="spa">Inglés para Spa</option>
+                        <option value="site-inspections">Inglés para Site Inspections</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email-beca">Email</label>
+                    <input type="email" id="email-beca" name="email" required>
+                </div>
+
+                <div class="form-group whatsapp-group">
+                    <label for="whatsapp-beca">Whatsapp (Incluye código de país y ciudad)</label>
+                    <input type="tel" id="whatsapp-beca" name="whatsapp" required>
+                </div>
+
+                <div class="form-group">
+                    <label>¿Qué porcentaje de beca necesitas?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="beca-10" name="porcentaje-beca" value="10" required>
+                            <label for="beca-10">10%</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="beca-20" name="porcentaje-beca" value="20">
+                            <label for="beca-20">20%</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="motivo-beca">¿Por qué es importante esta beca en este momento de tu carrera?</label>
+                    <textarea id="motivo-beca" name="motivo" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Apply</button>
+            </form>
         </div>
-    </section>
+    </main>
 
     <div class="footer-extra">
         <div class="social-media">
@@ -111,5 +169,15 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/js/intlTelInputWithUtils.min.js"></script>
+    <script>
+        const whatsappBecaInput = document.querySelector("#whatsapp-beca");
+        if (whatsappBecaInput) {
+            window.intlTelInput(whatsappBecaInput, {
+                initialCountry: "ar",
+                separateDialCode: true,
+            });
+        }
+    </script>
 </body>
 </html>
