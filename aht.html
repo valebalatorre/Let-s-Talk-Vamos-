@@ -7,6 +7,7 @@
     <title>Beneficios AHT | Let's Talk Vamos!</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/css/intlTelInput.css">
 </head>
 <body>
     <nav class="navbar">
@@ -17,7 +18,37 @@
         </div>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
+            <li class="nav-item-dropdown">
+                <a href="cursos.html">Cursos</a>
+                <button type="button" class="nav-arrow-btn" aria-label="Mostrar tipos de curso" aria-expanded="false">
+                    <svg class="nav-arrow nav-arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <ul class="nav-dropdown-menu">
+                    <li class="nav-dropdown-item">
+                        <a href="cursos-on-demand.html">Cursos On-Demand</a>
+                        <button type="button" class="nav-arrow-btn" aria-label="Mostrar áreas de Cursos On-Demand" aria-expanded="false">
+                            <svg class="nav-arrow nav-arrow-right" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="nav-submenu">
+                            <li><a href="recepcion.html">Recepción</a></li>
+                            <li><a href="room-service.html">Room Service</a></li>
+                            <li><a href="restaurante.html">Restaurante</a></li>
+                            <li><a href="conserjeria.html">Conserjería</a></li>
+                            <li><a href="spa.html">Spa</a></li>
+                            <li><a href="housekeeping.html">Housekeeping</a></li>
+                            <li><a href="site-inspections.html">Site Inspections</a></li>
+                            <li><a href="negotiations.html">Negotiations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">Programas Personalizados</a></li>
+                    <li><a href="packs.html">Sesiones de Conversación</a></li>
+                </ul>
+            </li>
             <li><a href="aht.html">Beneficios AHT</a></li>
             <li><a href="test-nivelacion.html">Evaluación de Nivelación</a></li>
             <li><a href="quienes-somos.html">Quiénes somos</a></li>
@@ -49,18 +80,7 @@
                 <!-- WhatsApp con prefijo internacional -->
                 <div class="form-group whatsapp-group">
                     <label for="whatsapp">WhatsApp</label>
-                    <div class="whatsapp-input">
-                        <select id="country-code" name="country-code">
-                            <option value="+54">🇦🇷 +54 (Argentina)</option>
-                            <option value="+55">🇧🇷 +55 (Brasil)</option>
-                            <option value="+56">🇨🇱 +56 (Chile)</option>
-                            <option value="+57">🇨🇴 +57 (Colombia)</option>
-                            <option value="+51">🇵🇪 +51 (Perú)</option>
-                            <option value="+1">🇺🇸 +1 (EEUU / Canadá)</option>
-                            <option value="+34">🇪🇸 +34 (España)</option>
-                        </select>
-                        <input type="text" id="whatsapp" name="whatsapp" placeholder="11 5374-9216">
-                    </div>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="11 5374-9216">
                 </div>
 
                 <!-- Membresía AHT (Radio Buttons) -->
@@ -179,5 +199,15 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.0/build/js/intlTelInputWithUtils.min.js"></script>
+    <script>
+        const whatsappInput = document.querySelector("#whatsapp");
+        if (whatsappInput) {
+            window.intlTelInput(whatsappInput, {
+                initialCountry: "ar",
+                separateDialCode: true,
+            });
+        }
+    </script>
 </body>
 </html>

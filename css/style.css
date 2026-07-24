@@ -75,8 +75,174 @@ body {
     transition: var(--transition); 
     white-space: nowrap;
 }
-.nav-menu a:hover { 
+.nav-menu a:hover {
     color: var(--logo-aqua); }
+
+/* Desplegable "Cursos" (2 niveles) */
+.nav-item-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.nav-arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 2px;
+    margin: 0;
+    color: var(--text-dark) !important;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-arrow-btn:hover {
+    color: var(--logo-aqua);
+}
+
+.nav-arrow {
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    transition: transform 0.25s ease;
+}
+
+.nav-item-dropdown:hover > .nav-arrow-btn .nav-arrow-down,
+.nav-item-dropdown.open > .nav-arrow-btn .nav-arrow-down {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-item:hover > .nav-arrow-btn .nav-arrow-right,
+.nav-dropdown-item.open > .nav-arrow-btn .nav-arrow-right {
+    transform: rotate(90deg);
+}
+
+.nav-dropdown-menu,
+.nav-submenu {
+    list-style: none;
+    position: absolute;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-pill);
+    padding: 10px;
+    min-width: 230px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 1001;
+}
+
+.nav-dropdown-menu {
+    top: calc(100% + 18px);
+    left: 0;
+}
+
+.nav-item-dropdown:hover > .nav-dropdown-menu,
+.nav-item-dropdown.open > .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu li {
+    position: relative;
+}
+
+.nav-dropdown-menu > li > a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.nav-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    border-radius: 10px;
+}
+
+.nav-dropdown-item > a {
+    flex: 1;
+}
+
+.nav-dropdown-menu > li > a:hover,
+.nav-dropdown-item:hover,
+.nav-dropdown-item.open {
+    background-color: var(--bg-color);
+}
+
+.nav-dropdown-menu > li > a:hover {
+    color: var(--primary-blue);
+}
+
+.nav-submenu {
+    top: -10px;
+    left: calc(100% + 10px);
+    transform: translateX(8px);
+}
+
+.nav-dropdown-item:hover > .nav-submenu,
+.nav-dropdown-item.open > .nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.nav-submenu li a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.nav-submenu li a:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-blue);
+}
+
+@media (max-width: 992px) {
+    .nav-dropdown-menu,
+    .nav-submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        display: none;
+        min-width: 0;
+        margin-top: 6px;
+        padding: 6px 0 6px 14px;
+    }
+
+    .nav-item-dropdown.open > .nav-dropdown-menu,
+    .nav-dropdown-item.open > .nav-submenu {
+        display: block;
+    }
+
+    .nav-item-dropdown {
+        flex-wrap: wrap;
+    }
+
+    .nav-dropdown-item {
+        flex-wrap: wrap;
+    }
+}
 
 .btn-cta-nav {
     background-color: var(--cta-subtle-blue);
@@ -360,23 +526,43 @@ body {
 /* ==========================================================================
    5. BOTONES Y ELEMENTOS COMUNES
    ========================================================================== */
+
+
+/* Update your selector to include 'a.btn-cta' */
 button, .btn-cta {
     background-color: var(--primary-blue);
-    color: var(--white);
+    color: var(--white) !important; /* Forces the text to stay white */
     padding: 14px 30px;
     border: none;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    display: block;
+    display: block; /* Changed from 'block' to 'inline-block' so it doesn't take the full width unless you want it to */
     margin: 20px auto;
+    text-decoration: none; /* Removes the underline from the link */
+    text-align: center;
 }
 
 button:hover, .btn-cta:hover {
     background-color: var(--accent-blue);
+    color: var(--white);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
+    text-decoration: none;
+}
+
+/* Ensure the WhatsApp icon has a little space */
+.btn-whatsapp i {
+    margin-right: 8px;
+}
+
+/* El link dentro del boton debe verse blanco y sin subrayado */
+.info-button .btn-whatsapp,
+.info-button .btn-whatsapp:visited,
+.info-button .btn-whatsapp:hover {
+    color: var(--white) !important;
+    text-decoration: none;
 }
 
 .scroll-down {
@@ -797,100 +983,59 @@ footer p {
 }
 
 /*
-   PAGINA DE NIVELACIÓN (UNIFICADO)
+   ENCABEZADOS DE SECCIÓN
+   (usado por todas las páginas de cursos on-demand, talleres y nivelación)
  */
 
-.nivelacion-page .header-intro {
+.header-intro {
     text-align: center;
-    background-color: rgba(87, 104, 105, 0.171);
-    padding-bottom: 40px;
-
-    padding: 80px 5%; /* Más aire para que el cristal respire */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-   /*
-    PAGINA DE NIVELACIÓN (CON EFECTO CRISTAL)
-   */
-
-.nivelacion-page .header-intro {
-    text-align: center;
-    /* Creamos un fondo dinámico con tus colores para que el cristal resalte */
-    background: linear-gradient(135deg, #366273 0%, #8FB9B9 100%); 
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
+    background: none;
+    padding: 70px 5% 50px;
     width: 100%;
-}
-
-.nivelacion-page .header-intro .container {
-    max-width: 100% !important; /* Permitimos que ocupe todo el ancho */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0 10px;
 }
 
 .glass-header {
-    /* Transparencia blanca sutil */
-    background: rgba(255, 255, 255, 0.2); 
-    
-    /* El efecto de desenfoque de vidrio */
-    backdrop-filter: blur(15px); 
-    -webkit-backdrop-filter: blur(15px); 
-    
-    padding: 40px 20px;
-    border-radius: 20px;
-    max-width: 1800px;
+    max-width: 800px;
     width: 100%;
     margin: 0 auto;
-    
-    /* Bordes brillantes para simular el canto del vidrio */
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    
-    /* Sombra suave para dar volumen */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Forzamos el color del texto para que contraste con el fondo azul/aqua */
 .glass-header h1 {
-    font-size: 2.8rem;
-    color: #ffffff; /* Blanco para máxima legibilidad sobre el azul */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    line-height: 1.2;
     margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.glass-header h1::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--logo-aqua);
+    border-radius: 2px;
+    margin: 20px auto 0;
 }
 
 .glass-header p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    color: var(--text-dark);
     line-height: 1.7;
-    max-width: 700px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .glass-header {
-        padding: 40px 30px;
-        border-radius: 15px;
+    .header-intro {
+        padding: 50px 5% 35px;
     }
     .glass-header h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
-}
-
-.nivelacion-page h1 {
-    font-size: 2.8rem;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Layout de dos columnas */
@@ -920,6 +1065,46 @@ footer p {
 
 .split-image img:hover {
     transform: scale(1.02);
+}
+
+/* Placeholder de imagen (áreas sin foto todavía) */
+.split-image-placeholder {
+    flex: 1;
+    min-width: 300px;
+    aspect-ratio: 4 / 3;
+    border: 2px dashed #b3d9e9;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--primary-blue);
+    text-align: center;
+}
+
+.split-image-placeholder i {
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+
+.split-image-placeholder span {
+    font-weight: 600;
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+/* Imagen de horarios (talleres) */
+.horarios-image {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.horarios-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow-pill);
 }
 
 /* Estilo de las listas de beneficios */
@@ -970,7 +1155,7 @@ footer p {
     text-align: center;
 }
 
-.titulo-cursos-limpio {
+.titulo-limpio {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     color: var(--primary-blue);
@@ -1072,7 +1257,7 @@ footer p {
 
 @media (max-width: 768px) {
     .cursos-grid { grid-template-columns: 1fr; }
-    .titulo-cursos-limpio { font-size: 1.8rem; }
+    .titulo-limpio { font-size: 1.8rem; }
 }
 
 /* ==========================================================================
@@ -1094,40 +1279,135 @@ footer p {
 
 .info-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
 
-.info-box.box-dashed { border: 2px dashed #b3d9e9; padding: 30px; border-radius: 10px; }
-.info-box.box-simple { border: 1px solid #e0e6ed; padding: 30px; border-radius: 10px; background: white; }
+/* Glassmorphism style for both boxes */
+.info-box {
+    padding: 30px;
+    border-radius: 12px;
+    /* This creates the dashed border from your first card */
+    border: 2px dashed #b3d9e9; 
+    
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+    backdrop-filter: blur(10px);          /* Blurs the background behind the card */
+    -webkit-backdrop-filter: blur(10px);  /* Support for Safari */
+    
+    /* Optional: adds a very subtle shadow to make it "pop" */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); 
+    
+    transition: transform 0.3s ease;
+}
+
+/* Slight lift effect when hovering */
+.info-box:hover {
+    transform: translateY(-5px);
+}
 
 .txt-bold { font-weight: 700; color: #1a3a5a; margin-bottom: 5px; }
 
-.acordion-item { background: #1a3a5a; color: white; margin-bottom: 10px; border-radius: 5px; cursor: pointer; }
-.acordion-item summary { padding: 15px; font-weight: 600; list-style: none; outline: none; }
-.acordion-content { background: white; color: #333; padding: 20px; border: 1px solid #1a3a5a; }
-
-.areas-grid-on-demand { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding-top: 40px; }
-.area-card-simple { border: 1px solid #e0e6ed; padding: 15px; background: white; border-radius: 8px; }
-.area-img-placeholder { width: 100%; height: 180px; background: #eee; margin-bottom: 15px; overflow: hidden; }
-.area-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-
-.btn-area-dark { 
-    display: block; 
-    background: #1a3a5a; 
-    color: white; 
-    text-align: center; 
-    padding: 12px; 
-    text-decoration: none; 
-    border-radius: 5px; 
-    font-weight: 600; 
-    font-size: 0.9rem;
+/* Container for the whole group */
+.accordion-group {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.lista-bullets { padding-left: 20px; list-style-type: disc; }
-.lista-bullets li { margin-bottom: 10px; color: #444; }
-.sub-lista { margin-top: 10px; padding-left: 20px; list-style-type: circle; display: grid; grid-template-columns: 1fr 1fr; }
+.acordion-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e6ed;
+    transition: all 0.3s ease;
+}
 
-.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+/* The Header (Summary) */
+.acordion-item summary {
+    padding: 20px;
+    font-weight: 600;
+    list-style: none;
+    outline: none;
+    cursor: pointer;
+    background: #1a3a5a; /* Your primary blue */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Custom Arrow using Pseudo-element */
+.acordion-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow/icon when open */
+.acordion-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+/* The Content Area */
+.acordion-content-transparente {
+    background: white; /* Changed from transparent to white for readability */
+    color: #333;
+    padding: 25px;
+    border-top: 1px solid #eee;
+    animation: slideDown 0.4s ease-out;
+}
+
+/* Animation for opening */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* List Styling inside Accordion */
+.lista-bullets {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.lista-bullets li {
+    margin-bottom: 12px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.sub-lista {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sub-lista li {
+    background: #f4f7f9;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #1a3a5a;
+    font-weight: 500;
+}
+
+/* FAQ specifics */
+.faq-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
 .faq-item:last-child { border: none; }
-.pregunta { font-weight: 700; color: #1a3a5a; margin-bottom: 5px; }
-.respuesta { color: #5a7a8f; font-size: 0.95rem; }
+
+.pregunta { 
+    font-weight: 700; 
+    color: #1a3a5a; 
+    margin-bottom: 5px; 
+}
+
+.respuesta { 
+    color: #5a7a8f; 
+    font-size: 0.95rem; 
+}
 
 /* ==========================================================================
    11. RESPONSIVE Y BOTONES FLOTANTES
@@ -1304,18 +1584,33 @@ footer p {
     box-shadow: 0 0 0 3px rgba(143, 185, 185, 0.1);
 }
 
-.whatsapp-input {
-    display: flex;
-    gap: 8px;
+/* Selector de país con bandera (intl-tel-input) */
+.whatsapp-group .iti {
+    width: 100%;
 }
 
-.whatsapp-input select {
-    min-width: 140px;
-    padding: 12px 10px;
+.whatsapp-group .iti__tel-input {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    background-color: #f9f9f9;
+    transition: var(--transition);
+    font-size: 0.95rem;
 }
 
-.whatsapp-input input {
-    flex: 1;
+.whatsapp-group .iti__tel-input:focus {
+    outline: none;
+    border-color: var(--logo-aqua);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(143, 185, 185, 0.1);
+}
+
+.whatsapp-group .iti__selected-dial-code {
+    font-weight: 600;
+    color: var(--text-dark);
 }
 
 /* Radio Buttons */
@@ -1410,13 +1705,6 @@ footer p {
         margin-bottom: 25px;
     }
 
-    .whatsapp-input {
-        flex-direction: column;
-    }
-
-    .whatsapp-input select {
-        min-width: auto;
-    }
 }
 
 /* ==========================================================================
@@ -1665,13 +1953,36 @@ footer p {
     margin-bottom: 60px;
 }
 
-.clientes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas desktop */
-    gap: 40px;
+/* Bloque por país (Argentina, Ecuador, ...) */
+.pais-block {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
     padding: 0 20px;
+}
+
+.pais-block:last-child {
+    margin-bottom: 0;
+}
+
+.pais-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--primary-blue);
+    font-size: 1.9rem;
+    margin-bottom: 35px;
+}
+
+/* Columnas auto-balanceadas: cada provincia se distribuye sola,
+   sin necesidad de repartir hoteles a mano entre columnas */
+.clientes-columns {
+    column-count: 3;
+    column-gap: 40px;
+}
+
+.region-block {
+    break-inside: avoid;
+    margin-bottom: 30px;
 }
 
 .region-title {
@@ -1705,17 +2016,19 @@ footer p {
     padding-left: 8px; /* Pequeño desplazamiento al pasar el mouse */
 }
 
-/* Espaciador para regiones en la misma columna */
-.mt-40 {
-    margin-top: 40px;
+.proximamente-text {
+    font-family: 'Montserrat', sans-serif;
+    color: #999;
+    font-style: italic;
+    text-align: center;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-    .clientes-grid { grid-template-columns: repeat(2, 1fr); }
+    .clientes-columns { column-count: 2; }
     .titulo-clientes { font-size: 2.2rem; }
 }
 
 @media (max-width: 600px) {
-    .clientes-grid { grid-template-columns: 1fr; }
+    .clientes-columns { column-count: 1; }
 }

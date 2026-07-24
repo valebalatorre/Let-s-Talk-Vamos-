@@ -17,7 +17,37 @@
         </div>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
+            <li class="nav-item-dropdown">
+                <a href="cursos.html">Cursos</a>
+                <button type="button" class="nav-arrow-btn" aria-label="Mostrar tipos de curso" aria-expanded="false">
+                    <svg class="nav-arrow nav-arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <ul class="nav-dropdown-menu">
+                    <li class="nav-dropdown-item">
+                        <a href="cursos-on-demand.html">Cursos On-Demand</a>
+                        <button type="button" class="nav-arrow-btn" aria-label="Mostrar áreas de Cursos On-Demand" aria-expanded="false">
+                            <svg class="nav-arrow nav-arrow-right" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="nav-submenu">
+                            <li><a href="recepcion.html">Recepción</a></li>
+                            <li><a href="room-service.html">Room Service</a></li>
+                            <li><a href="restaurante.html">Restaurante</a></li>
+                            <li><a href="conserjeria.html">Conserjería</a></li>
+                            <li><a href="spa.html">Spa</a></li>
+                            <li><a href="housekeeping.html">Housekeeping</a></li>
+                            <li><a href="site-inspections.html">Site Inspections</a></li>
+                            <li><a href="negotiations.html">Negotiations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">Programas Personalizados</a></li>
+                    <li><a href="packs.html">Sesiones de Conversación</a></li>
+                </ul>
+            </li>
             <li><a href="aht.html">Beneficios AHT</a></li>
             <li><a href="test-nivelacion.html">Evaluación de Nivelación</a></li>
             <li><a href="quienes-somos.html">Quiénes somos</a></li>
@@ -27,7 +57,7 @@
     </nav>
 
     <section class="cursos-section">
-        <h2 class="titulo-cursos-limpio">Cursos Express y Talleres</h2>
+        <h2 class="titulo-limpio">Cursos Express y Talleres</h2>
         
         <div class="cursos-grid">
             <div class="curso-card">

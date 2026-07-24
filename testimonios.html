@@ -17,7 +17,37 @@
         </div>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
+            <li class="nav-item-dropdown">
+                <a href="cursos.html">Cursos</a>
+                <button type="button" class="nav-arrow-btn" aria-label="Mostrar tipos de curso" aria-expanded="false">
+                    <svg class="nav-arrow nav-arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <ul class="nav-dropdown-menu">
+                    <li class="nav-dropdown-item">
+                        <a href="cursos-on-demand.html">Cursos On-Demand</a>
+                        <button type="button" class="nav-arrow-btn" aria-label="Mostrar áreas de Cursos On-Demand" aria-expanded="false">
+                            <svg class="nav-arrow nav-arrow-right" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="nav-submenu">
+                            <li><a href="recepcion.html">Recepción</a></li>
+                            <li><a href="room-service.html">Room Service</a></li>
+                            <li><a href="restaurante.html">Restaurante</a></li>
+                            <li><a href="conserjeria.html">Conserjería</a></li>
+                            <li><a href="spa.html">Spa</a></li>
+                            <li><a href="housekeeping.html">Housekeeping</a></li>
+                            <li><a href="site-inspections.html">Site Inspections</a></li>
+                            <li><a href="negotiations.html">Negotiations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">Programas Personalizados</a></li>
+                    <li><a href="packs.html">Sesiones de Conversación</a></li>
+                </ul>
+            </li>
             <li><a href="aht.html">Beneficios AHT</a></li>
             <li><a href="test-nivelacion.html">Evaluación de Nivelación</a></li>
             <li><a href="quienes-somos.html">Quiénes somos</a></li>
@@ -30,92 +60,114 @@
             <div class="container">
                 <h1 class="titulo-clientes">Establecimientos que confían en nosotros</h1>
                 
-                <div class="clientes-grid">
-                    <div class="cliente-col">
-                        <h2 class="region-title">Ciudad de Buenos Aires</h2>
-                        <ul class="hotel-list">
-                            <li>Pulitzer Buenos Aires</li>
-                            <li>Hotel Club Francés</li>
-                            <li>Ian Hotel</li>
-                            <li>Amerian Buenos Aires Park Hotel</li>
-                            <li>Presidente</li>
-                            <li>Hub Porteño</li>
-                            <li>Eurobuilding</li>
-                            <li>Argenta Tower</li>
-                            <li>Merit San Telmo</li>
-                            <li>El Conquistador</li>
-                            <li>Palacio Duhau - Park Hyatt</li>
-                            <li>Feir’s Park</li>
-                            <li>Mio Buenos Aires</li>
-                            <li>AWWA Suites</li>
-                            <li>Holiday Inn Express Puerto Madero</li>
-                            <li>1828 Smart Hotel</li>
-                            <li>Recoleta Grand</li>
-                            <li>NH CITY</li>
-                            <li>Hotel Howard Johnson Florida</li>
-                        </ul>
-                        
-                        <h2 class="region-title mt-40">Salta</h2>
-                        <ul class="hotel-list">
-                            <li>Gran Hotel Presidente</li>
-                            <li>Alejandro 1 Hotel</li>
-                            <li>Patios de Cafayate</li>
-                            <li>La Merced del Alto</li>
-                            <li>Sheraton Salta Hotel</li>
-                            <li>Legado Mitico Salta</li>
-                            <li>Iraola Hotel Boutique</li>
-                            <li>Solar de la Plaza</li>
-                        </ul>
+                <div class="pais-block">
+                    <h2 class="pais-title">Argentina</h2>
+                    <div class="clientes-columns">
+                        <div class="region-block">
+                            <h3 class="region-title">Ciudad de Buenos Aires</h3>
+                            <ul class="hotel-list">
+                                <li>Pulitzer Buenos Aires</li>
+                                <li>Hotel Club Francés</li>
+                                <li>Ian Hotel</li>
+                                <li>Amerian Buenos Aires Park Hotel</li>
+                                <li>Presidente</li>
+                                <li>Hub Porteño</li>
+                                <li>Eurobuilding</li>
+                                <li>Argenta Tower</li>
+                                <li>Merit San Telmo</li>
+                                <li>El Conquistador</li>
+                                <li>Palacio Duhau - Park Hyatt</li>
+                                <li>Feir’s Park</li>
+                                <li>Mio Buenos Aires</li>
+                                <li>AWWA Suites</li>
+                                <li>Holiday Inn Express Puerto Madero</li>
+                                <li>1828 Smart Hotel</li>
+                                <li>Recoleta Grand</li>
+                                <li>NH CITY</li>
+                                <li>Hotel Howard Johnson Florida</li>
+                            </ul>
+                        </div>
+
+                        <div class="region-block">
+                            <h3 class="region-title">Salta</h3>
+                            <ul class="hotel-list">
+                                <li>Gran Hotel Presidente</li>
+                                <li>Alejandro 1 Hotel</li>
+                                <li>Patios de Cafayate</li>
+                                <li>La Merced del Alto</li>
+                                <li>Sheraton Salta Hotel</li>
+                                <li>Legado Mitico Salta</li>
+                                <li>Iraola Hotel Boutique</li>
+                                <li>Solar de la Plaza</li>
+                            </ul>
+                        </div>
+
+                        <div class="region-block">
+                            <h3 class="region-title">Bariloche</h3>
+                            <ul class="hotel-list">
+                                <li>Villa Beluno</li>
+                                <li>El Casco</li>
+                                <li>La Cascada</li>
+                                <li>Llao Llao</li>
+                                <li>Aguila Mora</li>
+                            </ul>
+                        </div>
+
+                        <div class="region-block">
+                            <h3 class="region-title">Ushuaia</h3>
+                            <ul class="hotel-list">
+                                <li>Arakur</li>
+                                <li>Albatros</li>
+                                <li>Canal de Beagle</li>
+                            </ul>
+                        </div>
+
+                        <div class="region-block">
+                            <h3 class="region-title">Mendoza</h3>
+                            <ul class="hotel-list">
+                                <li>Entre Cielos</li>
+                                <li>Sheraton</li>
+                                <li>Huentala</li>
+                            </ul>
+                        </div>
+
+                        <div class="region-block">
+                            <h3 class="region-title">San Juan</h3>
+                            <ul class="hotel-list">
+                                <li>Del Bono</li>
+                            </ul>
+                        </div>
+
+                        <div class="region-block">
+                            <h3 class="region-title">Córdoba</h3>
+                            <ul class="hotel-list">
+                                <li>Howard Johnson La cañada</li>
+                                <li>Hotel Pinares Panorama</li>
+                                <li>Quinto Centenario Hotel</li>
+                                <li>NH Panorama</li>
+                                <li>Pueblo Nativo</li>
+                                <li>Boden</li>
+                                <li>Amerian Cordoba Park</li>
+                                <li>Amerian Executive</li>
+                            </ul>
+                        </div>
+
+                        <div class="region-block">
+                            <h3 class="region-title">Litoral</h3>
+                            <ul class="hotel-list">
+                                <li>Sol Victoria S.A.</li>
+                                <li>Puerto Norte Hotel</li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="cliente-col">
-                        <h2 class="region-title">Bariloche</h2>
-                        <ul class="hotel-list">
-                            <li>Villa Beluno</li>
-                            <li>El Casco</li>
-                            <li>La Cascada</li>
-                            <li>Llao Llao</li>
-                            <li>Aguila Mora</li>
-                        </ul>
-
-                        <h2 class="region-title mt-40">Ushuaia</h2>
-                        <ul class="hotel-list">
-                            <li>Arakur</li>
-                            <li>Albatros</li>
-                            <li>Canal de Beagle</li>
-                        </ul>
-
-                        <h2 class="region-title mt-40">Mendoza</h2>
-                        <ul class="hotel-list">
-                            <li>Entre Cielos</li>
-                            <li>Sheraton</li>
-                            <li>Huentala</li>
-                        </ul>
-
-                        <h2 class="region-title mt-40">San Juan</h2>
-                        <ul class="hotel-list">
-                            <li>Del Bono</li>
-                        </ul>
-                    </div>
-
-                    <div class="cliente-col">
-                        <h2 class="region-title">Córdoba</h2>
-                        <ul class="hotel-list">
-                            <li>Howard Johnson La cañada</li>
-                            <li>Hotel Pinares Panorama</li>
-                            <li>Quinto Centenario Hotel</li>
-                            <li>NH Panorama</li>
-                            <li>Pueblo Nativo</li>
-                            <li>Boden</li>
-                            <li>Amerian Cordoba Park</li>
-                            <li>Amerian Executive</li>
-                        </ul>
-
-                        <h2 class="region-title mt-40">Litoral</h2>
-                        <ul class="hotel-list">
-                            <li>Sol Victoria S.A.</li>
-                            <li>Puerto Norte Hotel</li>
-                        </ul>
+                <div class="pais-block">
+                    <h2 class="pais-title">Ecuador</h2>
+                    <div class="clientes-columns">
+                        <div class="region-block">
+                            <p class="proximamente-text">Próximamente</p>
+                        </div>
                     </div>
                 </div>
             </div>

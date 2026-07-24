@@ -17,7 +17,37 @@
         </div>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
+            <li class="nav-item-dropdown">
+                <a href="cursos.html">Cursos</a>
+                <button type="button" class="nav-arrow-btn" aria-label="Mostrar tipos de curso" aria-expanded="false">
+                    <svg class="nav-arrow nav-arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <ul class="nav-dropdown-menu">
+                    <li class="nav-dropdown-item">
+                        <a href="cursos-on-demand.html">Cursos On-Demand</a>
+                        <button type="button" class="nav-arrow-btn" aria-label="Mostrar áreas de Cursos On-Demand" aria-expanded="false">
+                            <svg class="nav-arrow nav-arrow-right" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="nav-submenu">
+                            <li><a href="recepcion.html">Recepción</a></li>
+                            <li><a href="room-service.html">Room Service</a></li>
+                            <li><a href="restaurante.html">Restaurante</a></li>
+                            <li><a href="conserjeria.html">Conserjería</a></li>
+                            <li><a href="spa.html">Spa</a></li>
+                            <li><a href="housekeeping.html">Housekeeping</a></li>
+                            <li><a href="site-inspections.html">Site Inspections</a></li>
+                            <li><a href="negotiations.html">Negotiations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">Programas Personalizados</a></li>
+                    <li><a href="packs.html">Sesiones de Conversación</a></li>
+                </ul>
+            </li>
             <li><a href="aht.html">Beneficios AHT</a></li>
             <li><a href="test-nivelacion.html">Evaluación de Nivelación</a></li>
             <li><a href="quienes-somos.html">Quiénes somos</a></li>
@@ -28,12 +58,182 @@
         </div>
     </nav>
 
-    <section id="becas" class="section">
+<main class="talleres-page">
+    <section id="becas" class="section header-intro">
         <div class="container">
-            <h1>CONTENIDO TALLERES</h1>
-            <p>Información sobre los talleres según el área.</p>
+            <div class="glass-header">
+                <h1>Contenido Talleres por Área</h1>
+                <p>Talleres en vivo por Zoom, organizados por área operativa del hotel.</p>
+            </div>
         </div>
     </section>
+
+    <section class="section">
+        <h2 class="titulo-limpio">Niveles y Modalidad</h2>
+        <div class="info-split-grid">
+            <div class="info-box">
+                <h3>Nivel Básico</h3>
+                <ul class="check-list">
+                    <li>1 encuentro de 1 hora por Zoom</li>
+                    <li>1 mes de coaching individual</li>
+                    <li>Materiales de por vida + Certificado</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Nivel Intermedio</h3>
+                <ul class="check-list">
+                    <li>2 encuentros de 1 hora por Zoom</li>
+                    <li>3 meses de coaching individual</li>
+                    <li>Materiales de por vida + Certificado</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="titulo-limpio">Horarios de Julio (Zoom)</h2>
+        <div class="horarios-image">
+            <img src="img/TALLERES hs/HorariosJulioLATAM-svg.svg" alt="Horarios de talleres Julio LATAM">
+        </div>
+    </section>
+
+    <section class="section split-section">
+        <div class="container split-wrapper">
+            <div class="split-image-placeholder">
+                <i class="fas fa-image"></i>
+                <span>Imagen próximamente</span>
+            </div>
+            <div class="split-text">
+                <h3>Recepción</h3>
+                <ul class="check-list">
+                    <li>Interacción básica en la recepción.</li>
+                    <li>Procedimientos de check-in y walk-ins.</li>
+                    <li>Explicación de servicios del hotel.</li>
+                    <li>Preguntas comunes de los huéspedes.</li>
+                    <li>Procedimientos de check-out.</li>
+                    <li>Gestión de quejas.</li>
+                    <li>Indicaciones y direcciones dentro del hotel y alrededores.</li>
+                    <li>Almacenamiento de equipaje y orientación en la habitación.</li>
+                    <li>Buenas prácticas de servicio al cliente y sensibilización sobre diferencias culturales.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section split-section">
+        <div class="container split-wrapper">
+            <div class="split-image-placeholder">
+                <i class="fas fa-image"></i>
+                <span>Imagen próximamente</span>
+            </div>
+            <div class="split-text">
+                <h3>Conserjería</h3>
+                <ul class="check-list">
+                    <li>Saludos iniciales y pronunciación.</li>
+                    <li>Interacción básica.</li>
+                    <li>Check-in.</li>
+                    <li>Explicación de servicios del hotel y la habitación.</li>
+                    <li>Preguntas comunes del huésped.</li>
+                    <li>Check-out.</li>
+                    <li>Direcciones alrededor del hotel.</li>
+                    <li>Buenas prácticas de servicio al cliente y sensibilización sobre diferencias culturales.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section split-section">
+        <div class="container split-wrapper">
+            <div class="split-image-placeholder">
+                <i class="fas fa-image"></i>
+                <span>Imagen próximamente</span>
+            </div>
+            <div class="split-text">
+                <h3>Mantenimiento</h3>
+                <ul class="check-list">
+                    <li>Saludos iniciales y pautas de pronunciación.</li>
+                    <li>Comunicación en la puerta de la habitación.</li>
+                    <li>Problemas técnicos y de equipos.</li>
+                    <li>Problemas relacionados con el baño y el agua.</li>
+                    <li>Problemas de conexión y tecnología.</li>
+                    <li>Manejo de problemas.</li>
+                    <li>Buenas prácticas de servicio al cliente y sensibilización sobre diferencias culturales.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section split-section">
+        <div class="container split-wrapper">
+            <div class="split-image-placeholder">
+                <i class="fas fa-image"></i>
+                <span>Imagen próximamente</span>
+            </div>
+            <div class="split-text">
+                <h3>Housekeeping</h3>
+                <ul class="check-list">
+                    <li>Saludos iniciales y pronunciación.</li>
+                    <li>Atender requerimientos comunes del huésped en la habitación.</li>
+                    <li>Lidiar con errores y faltantes.</li>
+                    <li>Atender problemas de limpieza.</li>
+                    <li>Lidiar con problemas típicos en la habitación y el baño.</li>
+                    <li>Buenas prácticas de servicio al cliente y sensibilización sobre diferencias culturales.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section split-section">
+        <div class="container split-wrapper">
+            <div class="split-image-placeholder">
+                <i class="fas fa-image"></i>
+                <span>Imagen próximamente</span>
+            </div>
+            <div class="split-text">
+                <h3>Restaurante</h3>
+                <ul class="check-list">
+                    <li>Saludos iniciales y pautas de pronunciación.</li>
+                    <li>Atención a clientes con y sin reserva.</li>
+                    <li>El desayuno.</li>
+                    <li>Selección y servicio de bebidas.</li>
+                    <li>El almuerzo y la cena.</li>
+                    <li>Los postres, café y la cuenta.</li>
+                    <li>Quejas comunes.</li>
+                    <li>Buenas prácticas de servicio al cliente y sensibilización sobre diferencias culturales.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section split-section">
+        <div class="container split-wrapper">
+            <div class="split-image-placeholder">
+                <i class="fas fa-image"></i>
+                <span>Imagen próximamente</span>
+            </div>
+            <div class="split-text">
+                <h3>Spa</h3>
+                <ul class="check-list">
+                    <li>Saludos iniciales y pronunciación.</li>
+                    <li>Ofrecer recorridos y describir instalaciones del spa.</li>
+                    <li>Horarios y reservas: cómo confirmar, modificar o cancelar turnos.</li>
+                    <li>Políticas de cancelación y reglas del spa.</li>
+                    <li>Explicación de tipos de masajes y tratamientos.</li>
+                    <li>Buenas prácticas de servicio al cliente y sensibilización sobre diferencias culturales.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+   <button class="info-button">
+        <a href="https://wa.me/5491153749216?text=Hola!%20Me%20gustaría%20recibir%20información%20sobre%20los%20talleres."
+            class="btn-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Quiero más información
+        </a>
+   </button>
+</main>
 
     <div class="footer-extra">
         <div class="social-media">

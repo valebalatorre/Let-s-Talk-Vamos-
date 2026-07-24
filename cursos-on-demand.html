@@ -17,7 +17,37 @@
         </div>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
+            <li class="nav-item-dropdown">
+                <a href="cursos.html">Cursos</a>
+                <button type="button" class="nav-arrow-btn" aria-label="Mostrar tipos de curso" aria-expanded="false">
+                    <svg class="nav-arrow nav-arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <ul class="nav-dropdown-menu">
+                    <li class="nav-dropdown-item">
+                        <a href="cursos-on-demand.html">Cursos On-Demand</a>
+                        <button type="button" class="nav-arrow-btn" aria-label="Mostrar áreas de Cursos On-Demand" aria-expanded="false">
+                            <svg class="nav-arrow nav-arrow-right" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="nav-submenu">
+                            <li><a href="recepcion.html">Recepción</a></li>
+                            <li><a href="room-service.html">Room Service</a></li>
+                            <li><a href="restaurante.html">Restaurante</a></li>
+                            <li><a href="conserjeria.html">Conserjería</a></li>
+                            <li><a href="spa.html">Spa</a></li>
+                            <li><a href="housekeeping.html">Housekeeping</a></li>
+                            <li><a href="site-inspections.html">Site Inspections</a></li>
+                            <li><a href="negotiations.html">Negotiations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">Programas Personalizados</a></li>
+                    <li><a href="packs.html">Sesiones de Conversación</a></li>
+                </ul>
+            </li>
             <li><a href="aht.html">Beneficios AHT</a></li>
             <li><a href="test-nivelacion.html">Evaluación de Nivelación</a></li>
             <li><a href="quienes-somos.html">Quiénes somos</a></li>
@@ -32,14 +62,14 @@
                 <h1 class="titulo-seccion-itálico">Cursos on-demand</h1>
                 
                 <div class="info-split-grid">
-                    <div class="info-box box-dashed">
+                    <div class="info-box">
                         <h3>Inglés Profesional para Hotelería</h3>
                         <p class="txt-bold">Acceso por 2 meses</p>
                         <p class="txt-bold">Inversión: USD 50 | ARS 150.000</p>
                         <p>Nuestros cursos On-Demand están diseñados para brindar capacitación específica en inglés aplicada al entorno hotelero, con contenidos desarrollados para equipos operativos y áreas de contacto directo con el huésped.</p>
                     </div>
 
-                    <div class="info-box box-simple-transparente">
+                    <div class="info-box">
                         <h3>Modalidad Asincrónica</h3>
                         <p>La cursada es <strong>100% asincrónica</strong>, lo que permite a cada colaborador acceder a la plataforma sin restricciones de horario.</p>
                         <p>El participante puede avanzar a su propio ritmo y revisar los contenidos durante todo el periodo de acceso, facilitando la integración de la capacitación dentro de la dinámica laboral.</p>
@@ -49,7 +79,7 @@
                 <div class="accordion-group">
                     
                     <details class="acordion-item">
-                        <summary>+ Estructura del Programa</summary>
+                        <summary>Estructura del Programa</summary>
                         <div class="acordion-content-transparente">
                             <ul class="lista-bullets">
                                 <li>Lecciones en video de 4 a 8 minutos.</li>
@@ -70,14 +100,14 @@
                     </details>
 
                     <details class="acordion-item">
-                        <summary>+ Enfoque en Comunicación Profesional</summary>
+                        <summary>Enfoque en Comunicación Profesional</summary>
                         <div class="acordion-content-transparente">
                             <p>El programa pone especial énfasis en la pronunciación y claridad en la comunicación, fortaleciendo la seguridad del equipo al interactuar con huéspedes internacionales y contribuyendo a elevar el estándar de servicio del establecimiento.</p>
                         </div>
                     </details>
 
                     <details class="acordion-item">
-                        <summary>+ FAQs</summary>
+                        <summary>FAQs</summary>
                         <div class="acordion-content-transparente faq-section">
                             <div class="faq-item">
                                 <p class="pregunta">¿Qué nivel de inglés necesito para este curso?</p>
@@ -116,7 +146,7 @@
                 <div class="areas-grid-on-demand">
                     <a href="recepcion.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/recepcion-cursos.png" alt="Recepción">
+                            <img src="img/taller-areas/recepcion-taller.jpg" alt="Recepción" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Recepción</h3>
@@ -125,7 +155,7 @@
 
                     <a href="room-service.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/room-service-cursos.png" alt="Room Service">
+                            <img src="img/taller-areas/roomservice-taller.jpg" alt="Room Service" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Room Service</h3>
@@ -134,7 +164,7 @@
 
                     <a href="restaurante.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/restaurante-cursos.png" alt="Restaurante">
+                            <img src="img/taller-areas/restaurante-taller.jpg" alt="Restaurante" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Restaurante</h3>
@@ -143,7 +173,7 @@
 
                     <a href="conserjeria.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/conserjeria-cursos.png" alt="Conserjería">
+                            <img src="img/taller-areas/conserjeria-taller.jpg" alt="Conserjería" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Conserjería</h3>
@@ -152,7 +182,7 @@
 
                     <a href="spa.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/spa-cursos.png" alt="Spa">
+                            <img src="img/taller-areas/spa-taller.jpg" alt="Spa" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Spa</h3>
@@ -161,7 +191,7 @@
 
                     <a href="housekeeping.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/housekeeping-cursos.png" alt="Housekeeping">
+                            <img src="img/taller-areas/housekeeping-taller.jpg" alt="Housekeeping" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Housekeeping</h3>
@@ -170,7 +200,7 @@
 
                     <a href="site-inspections.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/inspections-cursos.png" alt="Site Inspections">
+                            <img src="img/taller-areas/siteinspections-taller.jpg" alt="Site Inspections" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Site Inspections</h3>
@@ -179,7 +209,7 @@
 
                     <a href="negotiations.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/negotiations-cursos.png" alt="Negotiations">
+                            <img src="img/taller-areas/negotiations-taller2.jpg" alt="Negotiations" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Negotiations</h3>
@@ -188,7 +218,7 @@
 
                     <a href="de-escalation.html" class="area-card">
                         <div class="area-image">
-                            <img src="img/de-escalation-cursos.png" alt="Problem De-escalation">
+                            <img src="img/taller-areas/escalation-taller.jpg" alt="Problem De-escalation" loading="lazy">
                         </div>
                         <div class="area-info">
                             <h3>Problem De-escalation</h3>
