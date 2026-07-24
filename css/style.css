@@ -1668,21 +1668,42 @@ footer p {
    11. RESPONSIVE Y BOTONES FLOTANTES
    ========================================================================== */
 @media (max-width: 992px) {
-    .hero-wrapper, 
-    .cursos-split-wrapper { 
+    .hero {
+        /* En desktop el height:100vh + align-items:center funciona porque el
+           contenido entra en pantalla. En mobile, hero-text y hero-form se
+           apilan y superan el alto de pantalla, y ese centrado empuja la
+           mitad del contenido por ARRIBA del navbar y la otra mitad por
+           ABAJO, encima de la siguiente sección. Con min-height la caja
+           crece con el contenido en vez de recortarlo/centrarlo de más. */
+        height: auto;
+        min-height: 100vh;
+        margin-top: 0;
+        padding: 40px 5% 60px;
+    }
+
+    .hero-wrapper,
+    .cursos-split-wrapper {
         flex-direction: column; text-align: center; }
 
-    .hero-text, 
-    .cursos-text-side { 
+    .hero-text,
+    .cursos-text-side {
         margin-bottom: 40px; text-align: center; }
 
-    .hero-text h1, 
-    .cursos-text-side h2 { 
+    .hero-text h1,
+    .cursos-text-side h2 {
         text-align: center; font-size: 2.4rem; }
 
     .hero-description,
     .cursos-description-p {
         margin: 0 auto; }
+
+    .scroll-down {
+        position: static;
+        left: auto;
+        transform: none;
+        margin: 40px auto 0;
+        width: fit-content;
+    }
 }
 
 .btn-whatsapp-float {
