@@ -1,0 +1,16 @@
+# Redirecciones 301 desde las URLs de la web vieja (Wix) a las páginas nuevas.
+# Cloudflare Pages lee este archivo automáticamente.
+/servicios                    /cursos.html            301
+/services-1                   /talleres.html          301
+/copy-of-talleres-mensuales   /cursos-on-demand.html  301
+/cursos-de-3-meses            /cursos-on-demand.html  301
+/copy-of-recepci%C3%B3n-1     /site-inspections.html  301
+/copy-of-recepción-1          /site-inspections.html  301
+/traducciones                 /test-nivelacion.html   301
+/descuentos-aht-argentina     /aht.html               301
+/about-1                      /becas.html             301
+/about-3                      /spanish-expats.html    301
+/lead-collection              /diagnostico.html       301
+/acerca-de-m%C3%AD            /quienes-somos.html     301
+/acerca-de-mí                 /quienes-somos.html     301
+/ya-nos-eligieron             /testimonios.html       301

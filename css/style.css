@@ -1260,6 +1260,8 @@ footer p {
 
 .horarios-image img {
     width: 100%;
+    height: auto;
+    display: block;
     border-radius: 15px;
     box-shadow: var(--shadow-pill);
 }
@@ -2312,3 +2314,641 @@ footer p {
 @media (max-width: 600px) {
     .clientes-columns { column-count: 1; }
 }
+/* ==========================================================================
+   12. NAV: ACCESOS DESTACADOS (Diagnóstico gratis + Spanish for Expats)
+   ========================================================================== */
+.nav-menu a[aria-current="page"] {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.nav-cta-group {
+    display: flex;
+    align-items: center;
+}
+
+/* CTA principal: relleno en azul de marca */
+.btn-cta-nav--primary {
+    background-color: var(--primary-blue);
+    color: var(--white) !important;
+    gap: 8px;
+}
+
+.btn-cta-nav--primary:hover {
+    background-color: #2b5060;
+}
+
+/* Acceso destacado para otra audiencia (expats): píldora con borde aqua */
+.nav-menu .nav-link-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1.5px solid var(--logo-aqua);
+    border-radius: 50px;
+    color: var(--primary-blue);
+    font-weight: 600;
+    background-color: rgba(143, 185, 185, 0.12);
+}
+
+.nav-menu .nav-link-highlight i {
+    color: var(--logo-aqua);
+    font-size: 0.9em;
+    transition: var(--transition);
+}
+
+.nav-menu .nav-link-highlight:hover,
+.nav-menu .nav-link-highlight[aria-current="page"] {
+    background-color: var(--logo-aqua);
+    color: var(--white);
+}
+
+.nav-menu .nav-link-highlight:hover i,
+.nav-menu .nav-link-highlight[aria-current="page"] i {
+    color: var(--white);
+}
+
+.nav-highlight-item {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 1200px) {
+    .navbar .nav-menu {
+        gap: 18px;
+        margin-left: 28px;
+        align-items: center;
+    }
+    .navbar .nav-menu > li > a,
+    .navbar .nav-item-dropdown > a {
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-width: 1199px) {
+    .navbar.nav-open .nav-menu > li.nav-highlight-item {
+        margin-top: 8px;
+    }
+    .navbar.nav-open .nav-menu > li > a.nav-link-highlight {
+        display: inline-flex;
+        width: auto;
+        padding: 8px 16px;
+    }
+    .navbar.nav-open > .nav-cta-group .btn-cta-nav {
+        padding: 12px 18px;
+    }
+}
+
+/* ==========================================================================
+   13. PÁGINA SESIONES DE CONVERSACIÓN
+   ========================================================================== */
+.glass-header .header-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    margin: 0;
+    text-transform: none;
+}
+
+.sesiones-wrapper {
+    align-items: flex-start;
+}
+
+.sesiones-image figure {
+    margin: 0;
+}
+
+.sesiones-image img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    box-shadow: var(--shadow-pill);
+}
+
+.sesiones-image figcaption {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #6b7b82;
+    text-align: center;
+}
+
+.sesiones-text .check-list li {
+    line-height: 1.55;
+}
+
+.sesiones-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.sesiones-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: var(--white);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.sesiones-badge i {
+    color: var(--logo-aqua);
+}
+
+.paquetes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.paquete-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-pill);
+    border-top: 5px solid var(--logo-aqua);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.paquete-card--destacado {
+    border-top-color: var(--primary-blue);
+}
+
+.paquete-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.paquete-numero {
+    font-family: var(--font-title);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--primary-blue);
+}
+
+.paquete-card h3 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.paquete-card p {
+    color: #5a666b;
+    margin-bottom: 15px;
+}
+
+.paquete-card .btn-cta {
+    margin-top: auto;
+    text-decoration: none;
+}
+
+@media (max-width: 640px) {
+    .paquetes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   14. PÁGINA DIAGNÓSTICO GRATIS
+   ========================================================================== */
+.diagnostico-section {
+    max-width: 1150px;
+    padding-top: 30px;
+}
+
+.diagnostico-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 50px;
+    align-items: start;
+}
+
+.diagnostico-visual {
+    position: sticky;
+    top: 130px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-pill);
+    min-height: 560px;
+    background: url('../img/diagnostico/diagnostico-equipo.jpg') center / cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+}
+
+.diagnostico-visual-content {
+    width: 100%;
+    padding: 120px 35px 35px;
+    color: var(--white);
+    background: linear-gradient(to top, rgba(20, 45, 55, 0.92) 0%, rgba(20, 45, 55, 0.6) 55%, rgba(20, 45, 55, 0) 100%);
+}
+
+.diagnostico-visual-content .tag-label {
+    background: var(--logo-aqua);
+    color: var(--white);
+}
+
+.diagnostico-visual-content h1 {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+.diagnostico-visual-content ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+}
+
+.diagnostico-visual-content li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.diagnostico-visual-content li i {
+    color: var(--logo-aqua);
+    margin-top: 5px;
+}
+
+.diagnostico-form-container {
+    max-width: none;
+}
+
+.form-group input[type="tel"],
+.form-group input[type="number"] {
+    padding: 12px 14px;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    background-color: #f9f9f9;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--logo-aqua);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(143, 185, 185, 0.1);
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.required-mark {
+    color: #c0392b;
+}
+
+.form-error {
+    display: none;
+    color: #c0392b;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.form-group.has-error .form-error {
+    display: block;
+}
+
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.form-success i {
+    font-size: 3rem;
+    color: var(--logo-aqua);
+    margin-bottom: 15px;
+}
+
+.form-success h3 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.form-sent .aht-form { display: none; }
+.form-sent .form-success { display: block; }
+
+@media (max-width: 900px) {
+    .diagnostico-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .diagnostico-visual {
+        position: static;
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 520px) {
+    .form-row-2 {
+        grid-template-columns: 1fr;
+    }
+    .diagnostico-visual-content {
+        padding: 90px 22px 25px;
+    }
+    .diagnostico-visual-content h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   15. PÁGINA SPANISH FOR EXPATS
+   ========================================================================== */
+.expats-hero {
+    max-width: 1100px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.expats-eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--logo-aqua);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+/* Mismo estilo que los H1 del resto de la web (.glass-header h1) */
+.expats-hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--primary-blue);
+    max-width: 850px;
+    margin: 0 auto 20px;
+}
+
+.expats-hero h1::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--logo-aqua);
+    border-radius: 2px;
+    margin: 20px auto 0;
+}
+
+.expats-hero .expats-lead {
+    font-family: var(--font-title);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--logo-aqua);
+    margin-bottom: 25px;
+}
+
+.expats-hero .expats-intro {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    gap: 14px;
+    font-size: 1.08rem;
+    color: #4a5559;
+}
+
+.expats-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.expats-actions .btn-cta,
+.expats-actions .btn-secondary {
+    text-decoration: none;
+}
+
+.expats-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    padding-top: 10px;
+}
+
+.expats-pillar {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: var(--shadow-pill);
+    transition: var(--transition);
+}
+
+.expats-pillar:hover {
+    transform: translateY(-5px);
+}
+
+.expats-pillar i {
+    font-size: 1.8rem;
+    color: var(--white);
+    background: var(--primary-blue);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.expats-pillar h3 {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.expats-pillar p {
+    font-size: 0.92rem;
+    color: #5a666b;
+}
+
+.expats-why .split-image img {
+    max-height: 560px;
+    object-fit: cover;
+}
+
+.expats-why h2,
+.expats-services h2 {
+    text-align: left;
+    font-family: var(--font-title);
+    margin-bottom: 20px;
+}
+
+.expats-why p {
+    font-size: 1.08rem;
+    color: #4a5559;
+    line-height: 1.75;
+}
+
+.expats-services-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 45px;
+    box-shadow: var(--shadow-pill);
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 40px;
+    align-items: center;
+}
+
+.expats-services-card h2 {
+    margin-bottom: 10px;
+}
+
+.expats-services-card .services-note {
+    color: #5a666b;
+}
+
+.expats-services-card .check-list li:last-child {
+    margin-bottom: 0;
+}
+
+.expats-testimonial {
+    max-width: 900px;
+    text-align: center;
+}
+
+.expats-testimonial blockquote {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #4f8597 100%);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 55px 50px 40px;
+    box-shadow: var(--shadow-pill);
+}
+
+.expats-testimonial blockquote::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    font-family: var(--font-title);
+    font-size: 7rem;
+    line-height: 1;
+    color: var(--logo-aqua);
+}
+
+.expats-testimonial blockquote p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.expats-testimonial cite {
+    display: block;
+    margin-top: 20px;
+    font-style: normal;
+}
+
+.expats-testimonial cite strong {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.expats-testimonial cite span {
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+.expats-cta {
+    text-align: center;
+    max-width: 800px;
+    padding-bottom: 80px;
+}
+
+.expats-cta h2 {
+    font-family: var(--font-title);
+    margin-bottom: 15px;
+}
+
+.expats-cta p {
+    color: #4a5559;
+    font-size: 1.05rem;
+}
+
+@media (max-width: 992px) {
+    .expats-pillars {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .expats-services-card {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .expats-hero h1 {
+        font-size: 2rem;
+    }
+    .expats-hero .expats-lead {
+        font-size: 1.15rem;
+    }
+    .expats-why h2,
+    .expats-services h2 {
+        text-align: center;
+    }
+    .expats-services-card .check-list {
+        text-align: left;
+    }
+    .expats-testimonial blockquote {
+        padding: 50px 25px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .expats-pillars {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Imágenes de Talleres por área: mismo recorte para fotos verticales y horizontales */
+.taller-image img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.expats-actions .btn-cta,
+.expats-actions .btn-secondary {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 26px;
+    min-height: 48px;
+    font-size: 1rem;
+}
+
+.form-row-2 > .form-group { min-width: 0; }
+.form-row-2 input { width: 100%; }

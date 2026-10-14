@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/svg+xml" href="img/favicon-svg.svg">
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#366273">
     <title>Taller Site Inspections | Let's Talk Vamos!</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -40,7 +45,7 @@
                             <li><a href="conserjeria.html">Conserjería</a></li>
                             <li><a href="spa.html">Spa</a></li>
                             <li><a href="housekeeping.html">Housekeeping</a></li>
-                            <li><a href="site-inspections.html">Site Inspections</a></li>
+                            <li><a href="site-inspections.html" aria-current="page">Site Inspections</a></li>
                             <li><a href="negotiations.html">Negotiations</a></li>
                             <li><a href="de-escalation.html">Problem De-escalation</a></li>
                         </ul>
@@ -48,14 +53,28 @@
                     <li><a href="talleres.html">Talleres</a></li>
                     <li><a href="mailto:info@letstalkvamos.com" target="_blank" rel="noopener noreferrer">Programas Personalizados</a></li>
                     <li><a href="packs.html">Sesiones de Conversación</a></li>
+                    <li><a href="becas.html#becas">Becas y semi-becas</a></li>
                 </ul>
             </li>
             <li><a href="aht.html">Beneficios AHT</a></li>
-            <li><a href="test-nivelacion.html">Evaluación de Nivelación</a></li>
-            <li><a href="quienes-somos.html">Quiénes somos</a></li>
-            <li><a href="testimonios.html">Ya nos eligieron</a></li>
+            <li><a href="test-nivelacion.html">Evaluación de nivel</a></li>
+            <li class="nav-item-dropdown">
+                <a href="quienes-somos.html">Nosotros</a>
+                <button type="button" class="nav-arrow-btn" aria-label="Mostrar secciones de Nosotros" aria-expanded="false">
+                    <svg class="nav-arrow nav-arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                    <li><a href="testimonios.html">Ya nos eligieron</a></li>
+                </ul>
+            </li>
+            <li class="nav-highlight-item"><a href="spanish-expats.html" class="nav-link-highlight" lang="en"><i class="fas fa-globe-americas" aria-hidden="true"></i> Spanish for Expats</a></li>
         </ul>
-        <a href="becas.html#becas" class="btn-cta-nav">Solicitá una beca</a>
+        <div class="nav-cta-group">
+            <a href="diagnostico.html" class="btn-cta-nav btn-cta-nav--primary"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Diagnóstico gratis</a>
+        </div>
         <button type="button" class="nav-hamburger" aria-label="Abrir menu" aria-expanded="false">
             <span></span>
             <span></span>
